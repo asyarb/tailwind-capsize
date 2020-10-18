@@ -1,5 +1,5 @@
 {
-  "name": "tailwind-capsize",
+  "name": "@asyarb/tailwind-capsize",
   "version": "0.1.0",
   "description": "Tailwind to create capsize typography utilities.",
   "main": "dist/index.js",
@@ -8,7 +8,9 @@
   "author": "Anthony Yarbrough <asyarb@hawaii.edu>",
   "license": "MIT",
   "type": "commonjs",
-  "files": ["./dist"],
+  "files": [
+    "./dist"
+  ],
   "scripts": {
     "build": "tsc"
   },
@@ -19,8 +21,7 @@
   },
   "devDependencies": {
     "prettier": "^2.1.2",
-    "snoop": "^1.0.2",
-    "tailwindcss": "^1.9.4",
+    "standard-version": "^9.0.0",
     "typescript": "^4.0.3"
   },
   "dependencies": {

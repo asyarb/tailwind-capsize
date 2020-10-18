@@ -1,0 +1,19 @@
+{
+  "name": "example",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "preact": "^10.5.4"
+  },
+  "devDependencies": {
+    "@asyarb/tailwind-capsize": "link:../",
+    "@prefresh/vite": "^1.1.4",
+    "capsize": "^1.1.0",
+    "postcss-import": "^12.0.1",
+    "tailwindcss": "^1.9.4",
+    "vite": "^1.0.0-rc.4"
+  }
+}
