@@ -1,6 +1,6 @@
 {
   "name": "@asyarb/tailwind-capsize",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Tailwind to create capsize typography utilities.",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -12,7 +12,8 @@
     "./dist"
   ],
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "release": "standard-version"
   },
   "prettier": {
     "printWidth": 80,
