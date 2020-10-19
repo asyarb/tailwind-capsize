@@ -9,7 +9,7 @@
     "preact": "^10.5.4"
   },
   "devDependencies": {
-    "@asyarb/tailwind-capsize": "^0.1.1",
+    "@asyarb/tailwind-capsize": "link:../",
     "@prefresh/vite": "^1.1.4",
     "capsize": "^1.1.0",
     "postcss-import": "^12.0.1",

@@ -1,28 +1,17 @@
-import plugin from 'tailwindcss/plugin'
-import capsize, { FontMetrics } from 'capsize'
+const plugin = require('tailwindcss/plugin')
+const capsize = require('capsize')
 
-interface FontSet {
-  fontSize: number
-  leading: number
-}
+module.exports = plugin(({ addUtilities, theme, e }) => {
+  const capsizeSets = theme('capsize') || []
 
-interface CapsizeSet {
-  fontFamily: string
-  fontMetrics: FontMetrics
-  fontSets: FontSet[]
-}
-
-export default plugin(({ addUtilities, theme, e }) => {
-  const capsizeSets: CapsizeSet[] | undefined = theme('capsize')
-
-  capsizeSets?.forEach((set) => {
+  capsizeSets.forEach((set) => {
     set.fontSets.forEach((fontSet) => {
-      // TODO: Fix type
-      const styles: any = capsize({
+      const styles = capsize({
         fontSize: fontSet.fontSize,
         leading: fontSet.leading,
         fontMetrics: set.fontMetrics,
       })
+
       styles['&::before'] = styles['::before']
       styles['&::after'] = styles['::after']
       delete styles['::before']

@@ -2,17 +2,15 @@
   "name": "@asyarb/tailwind-capsize",
   "version": "0.1.2",
   "description": "Tailwind to create capsize typography utilities.",
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
+  "main": "./index.js",
   "repository": "https://github.com/asyarb/tailwind-capsize",
   "author": "Anthony Yarbrough <asyarb@hawaii.edu>",
   "license": "MIT",
   "type": "commonjs",
   "files": [
-    "./dist"
+    "./index.js"
   ],
   "scripts": {
-    "build": "tsc",
     "prepare": "yarn build",
     "release": "standard-version"
   },
@@ -23,8 +21,7 @@
   },
   "devDependencies": {
     "prettier": "^2.1.2",
-    "standard-version": "^9.0.0",
-    "typescript": "^4.0.3"
+    "standard-version": "^9.0.0"
   },
   "dependencies": {
     "capsize": "^1.1.0"

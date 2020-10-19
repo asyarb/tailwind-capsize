@@ -2,12 +2,9 @@
 # yarn lockfile v1
 
 
-"@asyarb/tailwind-capsize@^0.1.1":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@asyarb/tailwind-capsize/-/tailwind-capsize-0.1.1.tgz#acd03992aa9ae9a311fff57ad0f1440d305d7290"
-  integrity sha512-k/jjY8GAGs9Yy90e2v8fM7cxVzYitu4aF5mg/N3rQeeTp+NtLULTHZ22JidoRUtm6W31i4U+2emdBQXvWVHTaQ==
-  dependencies:
-    capsize "^1.1.0"
+"@asyarb/tailwind-capsize@link:..":
+  version "0.0.0"
+  uid ""
 
 "@babel/code-frame@^7.10.4", "@babel/code-frame@^7.5.5":
   version "7.10.4"
