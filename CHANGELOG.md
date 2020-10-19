@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.3](https://github.com/asyarb/tailwind-capsize/compare/v0.1.2...v0.1.3) (2020-10-19)
+
+
+### Features
+
+* use plain js ([ab668de](https://github.com/asyarb/tailwind-capsize/commit/ab668de6903e049e2716c8b9aa6a112fbfd3951c))
+
 ### [0.1.2](https://github.com/asyarb/tailwind-capsize/compare/v0.1.1...v0.1.2) (2020-10-19)
 
 
