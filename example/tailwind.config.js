@@ -22,7 +22,10 @@ module.exports = {
             fontSize: 16,
             leading: 16 * 1.5,
           },
-          { fontSize: 24, leading: 24 * 1.15 },
+          {
+            fontSize: 24,
+            leading: 24 * 1.15,
+          },
         ],
       },
     ],
