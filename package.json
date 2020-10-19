@@ -13,6 +13,7 @@
   ],
   "scripts": {
     "build": "tsc",
+    "prepare": "yarn build",
     "release": "standard-version"
   },
   "prettier": {
