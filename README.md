@@ -1,8 +1,12 @@
-# Tailwind Capsize
+# Tailwind Capsize <!-- omit in toc -->
 
 TailwindCSS plugin to generate utilities that trim the whitespace above and
 below web typography using the [Capsize](https://github.com/seek-oss/capsize)
 library.
+
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Usage](#usage)
 
 ## Installation
 
@@ -75,3 +79,7 @@ module.exports = {
   plugins: [require('@asyarb/tailwind-capsize')],
 }
 ```
+
+## Usage
+
+TODO
