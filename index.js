@@ -1,5 +1,5 @@
 const plugin = require('tailwindcss/plugin')
-const capsize = require('capsize')
+const { default: capsize } = require('capsize')
 
 module.exports = plugin(({ addUtilities, theme, e }) => {
   const capsizeSets = theme('capsize') || []
