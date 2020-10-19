@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@asyarb/tailwind-capsize@^0.1.4":
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/@asyarb/tailwind-capsize/-/tailwind-capsize-0.1.4.tgz#f003570a0ad6f7a52c823c9a176cdb9a8429609f"
-  integrity sha512-FbXz38i0WUPLwnc/sOKZTAJzWHTy8VyKF7KKZpzuqRuEWnEc1rKuhO/EPZYsJmLdyirYhPe1ppGrdK8ygZzLTw==
+"@asyarb/tailwind-capsize@^0.1.5":
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/@asyarb/tailwind-capsize/-/tailwind-capsize-0.1.5.tgz#310dfcf4a21ff178651559a59650fd8c60ce53e0"
+  integrity sha512-rZWWGpIF8I7NMsdB7oP1kF0eBLtE/R3q+7z8wP7Yf3vkdmCEBVFBxUCXq7MwdOWdisPdOqZl1g+3nWqle8eT3g==
   dependencies:
     capsize "^1.1.0"
 
