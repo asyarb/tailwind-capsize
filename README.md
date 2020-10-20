@@ -82,4 +82,13 @@ module.exports = {
 
 ## Usage
 
-TODO
+Your new capsize utility classes will be named according to the `fontFamily`
+and `fontSize` values that were provided in each config object. For example,
+using the configuration above, we'll have the following utilities available
+to us:
+
+- `sans-16`
+- `sans-24`
+
+This plugin will also generate responsive variants for each of the above
+utilities, for example: `md:sans-16` and `xl:sans-16`.
