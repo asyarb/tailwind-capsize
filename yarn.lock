@@ -553,6 +553,11 @@ css-unit-converter@^1.1.1:
   resolved "https://registry.yarnpkg.com/css-unit-converter/-/css-unit-converter-1.1.2.tgz#4c77f5a1954e6dbff60695ecb214e3270436ab21"
   integrity sha512-IiJwMC8rdZE0+xiEZHeru6YoONC4rfPMqGm2W85jMIbkFvv5nFTwJVFHam2eFrN6txmoUYFAFXiv8ICVeTO0MA==
 
+css2json@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/css2json/-/css2json-1.1.1.tgz#caae34e809ed3eed1a010caf30ca4e773d59f7b3"
+  integrity sha512-dyjBh8MbvAPISPmkaqU63ZenNdkHItsGzbKNqmHt+6atSTm2mByocN/8mbdSS7p4FQeZBfnG9J9TjmPbXtWuDQ==
+
 cssesc@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/cssesc/-/cssesc-3.0.0.tgz#37741919903b868565e1c09ea747445cd18983ee"

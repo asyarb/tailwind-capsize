@@ -9,7 +9,6 @@ module.exports = {
   theme: {
     fontSize: {
       base: '1rem',
-      another: 24,
     },
     lineHeight: {
       solid: 1,
