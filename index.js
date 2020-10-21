@@ -64,8 +64,11 @@ module.exports = plugin(({ addUtilities, theme, e }) => {
   forEach(config.fontFamilies, (fontMetrics, fontFamilyKey) => {
     forEach(fontSizes, (fontSize, fontSizeKey) => {
       forEach(lineHeights, (lineHeight, lineHeightKey) => {
-        // TODO: Throw if this is not defined in the fontFamily key.
         const fontFamily = theme(`fontFamily.${fontFamilyKey}`)
+        if (!fontFamily)
+          throw new Error(
+            `\`${fontFamilyKey}\` does not have a corresponding key in \`fontFamily\`.`
+          )
 
         const styles = twCapsize(
           {
