@@ -11,6 +11,8 @@
     "index.js"
   ],
   "scripts": {
+    "test": "uvu tests",
+    "test:watch": "watchlist ./ tests -- yarn test",
     "release": "standard-version"
   },
   "prettier": {
@@ -19,13 +21,19 @@
     "singleQuote": true
   },
   "devDependencies": {
+    "eslint": "^7.11.0",
+    "postcss": "^8.1.2",
     "prettier": "^2.1.2",
-    "standard-version": "^9.0.0"
+    "standard-version": "^9.0.0",
+    "tailwindcss": "^1.9.5",
+    "uvu": "^0.3.4",
+    "watchlist": "^0.2.3"
   },
   "dependencies": {
-    "capsize": "^1.1.0"
+    "capsize": "^1.1.0",
+    "lodash": "^4.17.20"
   },
   "peerDependencies": {
-    "tailwindcss": "^1.9.4"
+    "tailwindcss": "^1.9.0"
   }
 }
