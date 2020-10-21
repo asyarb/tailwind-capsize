@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.6](https://github.com/asyarb/tailwind-capsize/compare/v0.1.5...v0.1.6) (2020-10-21)
+
+
+### Features
+
+* testing setup ([766f3a8](https://github.com/asyarb/tailwind-capsize/commit/766f3a81dae9225520498abaff778a2cb28097bb))
+* throw if a matching font family is not found ([e80f386](https://github.com/asyarb/tailwind-capsize/commit/e80f38681a31f94b6f51b9a3e48bcef33387a39c))
+* working tests ([d63e763](https://github.com/asyarb/tailwind-capsize/commit/d63e76376a7db710c12622f3ae14c2aa062fd0d2))
+
 ### [0.1.5](https://github.com/asyarb/tailwind-capsize/compare/v0.1.4...v0.1.5) (2020-10-19)
 
 
