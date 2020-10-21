@@ -9,11 +9,11 @@ function convertPxStringToRem(pxString, remSize = 16) {
 
 // Generates the capsize styles in a tailwind-compatible format.
 // Converts the pixel based ouput into rems for a11y reasons.
-function twCapsize(capsizeArgs) {
+function twCapsize(capsizeArgs, remFontSize = 16) {
   const styles = capsize(capsizeArgs)
 
-  styles.fontSize = convertPxStringToRem(styles.fontSize)
-  styles.lineHeight = convertPxStringToRem(styles.lineHeight)
+  styles.fontSize = convertPxStringToRem(styles.fontSize, remFontSize)
+  styles.lineHeight = convertPxStringToRem(styles.lineHeight, remFontSize)
 
   styles['&::before'] = styles['::before']
   styles['&::after'] = styles['::after']
@@ -52,28 +52,30 @@ function validateLineHeights(lineHeights) {
 }
 
 module.exports = plugin(({ addUtilities, theme, e }) => {
-  const capsizeSets = theme('capsize', [])
-  const fontSizes = mapFontSizesToPx(theme('fontSize', {}))
+  const config = theme('capsize', {})
+  const baseFontSize = config.remFontSize
 
+  const fontSizes = mapFontSizesToPx(theme('fontSize', {}))
   const lineHeights = theme('lineHeight', {})
   validateLineHeights(lineHeights)
 
   // Iterate over every fontSize and lineHeight and generate a set of capsize
   // styles.
-  forEach(capsizeSets, (capsizeSet) => {
+  forEach(config.fontFamilies, (fontMetrics, fontFamilyKey) => {
     forEach(fontSizes, (fontSize, fontSizeKey) => {
       forEach(lineHeights, (lineHeight, lineHeightKey) => {
-        const fontFamily = theme(`fontFamily.${capsizeSet.fontFamily}`)
+        // TODO: Throw if this is not defined in the fontFamily key.
+        const fontFamily = theme(`fontFamily.${fontFamilyKey}`)
 
-        const styles = twCapsize({
-          fontMetrics: capsizeSet.fontMetrics,
-          leading: lineHeight * fontSize,
-          fontSize,
-        })
-        // .sans-base-solid
-        const className = e(
-          `${capsizeSet.fontFamily}-${fontSizeKey}-${lineHeightKey}`
+        const styles = twCapsize(
+          {
+            fontMetrics,
+            fontSize,
+            leading: lineHeight * fontSize,
+          },
+          baseFontSize
         )
+        const className = e(`${fontFamilyKey}-${fontSizeKey}-${lineHeightKey}`)
 
         const utilities = {
           [`.${className}`]: {

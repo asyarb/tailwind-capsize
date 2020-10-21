@@ -6,7 +6,7 @@ library.
 
 - [Installation](#installation)
 - [Configuration](#configuration)
-- [Usage](#usage)
+- [Output](#output)
 
 ## Installation
 
@@ -26,20 +26,18 @@ objects that adhere to the following structure:
 
 ```ts
 interface Structure {
-  fontFamily: string // A key from your theme's `fontFamily` key.
-  fontMetrics: {
-    // The metrics for your `fontFamily` from the Capsize website/fontkit.
-    ascent: number
-    descent: number
-    lineGap: number
-    unitsPerEm: number
-    capHeight: number
+  remFontSize: number // The base px font-size. Defaults to 16.
+  fontFamilies: {
+    // A valid key from the `fontFamily` key in your config.
+    [fontFamily: string]: {
+      // The metrics from the Capsize website.
+      ascent: number
+      descent: number
+      lineGap: number
+      unitsPerEm: number
+      capHeight: number
+    }
   }
-  fontSets: {
-    // The set of fonts you wish to generate Tailwind Utilities of.
-    fontSize: number // In pixels
-    leading: number // In pixels
-  }[]
 }
 ```
 
@@ -50,45 +48,45 @@ See below for an example Tailwind config file:
 module.exports = {
   // The rest of your config...
   theme: {
+    fontSize: {
+      base: '1rem',
+    },
+    lineHeight: {
+      solid: 1,
+    },
     fontFamily: {
       sans: "'Inter var', system-ui'",
     },
-    capsize: [
-      {
-        fontFamily: 'sans',
-        fontMetrics: {
+
+    capsize: {
+      remFontSize: 16,
+      fontFamilies: {
+        sans: {
           capHeight: 2048,
           ascent: 2728,
           descent: -680,
           lineGap: 0,
           unitsPerEm: 2816,
         },
-        fontSets: [
-          {
-            fontSize: 16,
-            leading: 16 * 1.5,
-          },
-          {
-            fontSize: 24,
-            leading: 24 * 1.15,
-          },
-        ],
       },
-    ],
+    },
   },
   plugins: [require('@asyarb/tailwind-capsize')],
 }
 ```
 
-## Usage
+## Output
 
-Your new capsize utility classes will be named according to the `fontFamily`
-and `fontSize` values that were provided in each config object. For example,
-using the configuration above, we'll have the following utilities available
-to us:
+Your new capsize utility classes will be named according to the `fontFamily`, `fontSize`, and `lineHeight` keys in your theme. With those keys, this plugin will create classes in the following format:
 
-- `sans-16`
-- `sans-24`
+```
+.fontFamily-fontSize-lineHeight
+```
 
-This plugin will also generate responsive variants for each of the above
-utilities, for example: `md:sans-16` and `xl:sans-16`.
+Using the example config from above, we'll generate the following utility class:
+
+```
+.sans-base-solid
+```
+
+This plugin will also generate responsive variants, so you can prefix these new utilities with the usual `sm:`, `md:` or whatever is present in your config's `screens` key.

@@ -17,10 +17,10 @@ module.exports = {
       sans: "'Inter var', system-ui",
     },
 
-    capsize: [
-      {
-        fontFamily: 'sans',
-        fontMetrics: {
+    capsize: {
+      remFontSize: 16,
+      fontFamilies: {
+        sans: {
           capHeight: 2048,
           ascent: 2728,
           descent: -680,
@@ -28,7 +28,7 @@ module.exports = {
           unitsPerEm: 2816,
         },
       },
-    ],
+    },
 
     extend: {},
   },
