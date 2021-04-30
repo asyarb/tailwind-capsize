@@ -21,10 +21,9 @@ test('it works', async () => {
 
   assert.equal(
     {
+      'font-family': "'Inter var', system-ui",
       'font-size': '1rem',
       'line-height': '1rem',
-      'font-family': "'Inter var', system-ui",
-      padding: '0.05px 0',
     },
     cssJson['.sans-base-solid']
   )
@@ -32,9 +31,8 @@ test('it works', async () => {
   assert.equal(
     {
       content: "''",
-      'margin-top': '-0.1395em',
-      display: 'block',
-      height: '0',
+      'margin-bottom': '-0.1364em',
+      display: 'table',
     },
     cssJson['.sans-base-solid::before']
   )
@@ -42,9 +40,8 @@ test('it works', async () => {
   assert.equal(
     {
       content: "''",
-      'margin-bottom': '-0.1395em',
-      display: 'block',
-      height: '0',
+      'margin-top': '-0.1364em',
+      display: 'table',
     },
     cssJson['.sans-base-solid::after']
   )
