@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.2.0](https://github.com/asyarb/tailwind-capsize/compare/v0.1.6...v0.2.0) (2021-04-30)
+
+
+### ⚠ BREAKING CHANGES
+
+* updates underlying capsize library to 2.0 which is a breaking change
+
+### Features
+
+* update deps ([5672349](https://github.com/asyarb/tailwind-capsize/commit/56723492dba925aad6e440938b0a6dc80cba598b))
+
 ### [0.1.6](https://github.com/asyarb/tailwind-capsize/compare/v0.1.5...v0.1.6) (2020-10-21)
 
 
