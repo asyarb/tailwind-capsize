@@ -1,0 +1,21 @@
+{
+  "include": ["./**/*.ts"],
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "strict": true,
+    "strictNullChecks": true,
+
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noImplicitAny": true,
+    "noEmit": true,
+    "noFallthroughCasesInSwitch": true,
+
+    "allowJs": true,
+    "resolveJsonModule": true
+  }
+}

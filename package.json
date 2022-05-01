@@ -2,39 +2,37 @@
   "name": "@asyarb/tailwind-capsize",
   "version": "0.2.0",
   "description": "Tailwind to create capsize typography utilities.",
-  "main": "index.js",
   "repository": "https://github.com/asyarb/tailwind-capsize",
   "author": "Anthony Yarbrough <asyarb@hawaii.edu>",
   "license": "MIT",
-  "type": "commonjs",
   "files": [
-    "index.js"
+    "dist"
   ],
-  "scripts": {
-    "test": "uvu tests",
-    "test:watch": "watchlist ./ tests -- yarn test",
-    "release": "standard-version"
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "exports": {
+    "require": "./dist/index.js",
+    "import": "./dist/index.mjs"
   },
-  "prettier": {
-    "printWidth": 80,
-    "semi": false,
-    "singleQuote": true
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build-fast": "tsup src/index.ts --format cjs,esm",
+    "build": "pnpm run build-fast -- --dts-resolve",
+    "test": "vitest run",
+    "prepublishOnly": "pnpm run build"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "tailwindcss": "^3"
   },
   "devDependencies": {
-    "css2json": "^1.1.1",
-    "eslint": "^7.25.0",
+    "autoprefixer": "^10.4.5",
     "postcss": "^8.2.13",
     "prettier": "^2.2.1",
-    "standard-version": "^9.2.0",
-    "tailwindcss": "^2.1.2",
-    "uvu": "^0.5.1",
-    "watchlist": "^0.2.3"
-  },
-  "dependencies": {
-    "capsize": "^2.0.0",
-    "lodash": "^4.17.21"
-  },
-  "peerDependencies": {
-    "tailwindcss": "^2.1.0"
+    "tailwindcss": "^3.0.24",
+    "tsup": "5.12.6",
+    "typescript": "4.6.4",
+    "vite": "^2.9.6",
+    "vitest": "0.10.0"
   }
 }
