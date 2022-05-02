@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@types/tailwindcss': ^3.0.10
   autoprefixer: ^10.4.5
   postcss: ^8.2.13
   prettier: ^2.2.1
@@ -9,8 +10,13 @@ specifiers:
   typescript: 4.6.4
   vite: ^2.9.6
   vitest: 0.10.0
+  zod: ^3.14.4
+
+dependencies:
+  zod: 3.14.4
 
 devDependencies:
+  '@types/tailwindcss': 3.0.10
   autoprefixer: 10.4.5_postcss@8.4.13
   postcss: 8.4.13
   prettier: 2.6.2
@@ -51,6 +57,10 @@ packages:
 
   /@types/chai/4.3.1:
     resolution: {integrity: sha512-/zPMqDkzSZ8t3VtxOa4KPq7uzzW978M9Tvh+j7GHKuo6k6GTLxPJ4J5gE5cjfJ26pnXst0N5Hax8Sr0T2Mi9zQ==}
+    dev: true
+
+  /@types/tailwindcss/3.0.10:
+    resolution: {integrity: sha512-1UnZIHO0NOPyPlPFV0HuMjki2SHkvG9uBA1ZehWj/OQMSROk503nuNyyfmJSIT289yewxTbKoPG+KLxYRvfIIg==}
     dev: true
 
   /acorn-node/1.8.2:
@@ -1188,3 +1198,7 @@ packages:
     resolution: {integrity: sha512-r3vXyErRCYJ7wg28yvBY5VSoAF8ZvlcW9/BwUzEtUsjvX/DKs24dIkuwjtuprwJJHsbyUbLApepYTR1BN4uHrg==}
     engines: {node: '>= 6'}
     dev: true
+
+  /zod/3.14.4:
+    resolution: {integrity: sha512-U9BFLb2GO34Sfo9IUYp0w3wJLlmcyGoMd75qU9yf+DrdGA4kEx6e+l9KOkAlyUO0PSQzZCa3TR4qVlcmwqSDuw==}
+    dev: false

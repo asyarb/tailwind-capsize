@@ -21,11 +21,14 @@
     "test": "vitest run",
     "prepublishOnly": "pnpm run build"
   },
-  "dependencies": {},
+  "dependencies": {
+    "zod": "^3.14.4"
+  },
   "peerDependencies": {
     "tailwindcss": "^3"
   },
   "devDependencies": {
+    "@types/tailwindcss": "^3.0.10",
     "autoprefixer": "^10.4.5",
     "postcss": "^8.2.13",
     "prettier": "^2.2.1",
