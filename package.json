@@ -16,19 +16,23 @@
   },
   "types": "./dist/index.d.ts",
   "scripts": {
-    "build-fast": "tsup src/index.ts --format cjs,esm",
-    "build": "pnpm run build-fast -- --dts-resolve",
-    "test": "vitest run",
-    "prepublishOnly": "pnpm run build"
+    "dev": "NODE_ENV=development pnpm run build",
+    "dev:test": "vitest",
+    "build": "tsup",
+    "build:prod": "NODE_ENV=production pnpm run build",
+    "test": "pnpm run build:prod && vitest run",
+    "prepublishOnly": "pnpm run build:prod"
   },
   "dependencies": {
+    "@swan-io/boxed": "^0.8.0",
     "zod": "^3.14.4"
   },
   "peerDependencies": {
     "tailwindcss": "^3"
   },
   "devDependencies": {
-    "@types/tailwindcss": "^3.0.10",
+    "@capsizecss/metrics": "^0.2.0",
+    "@types/node": "^17.0.31",
     "autoprefixer": "^10.4.5",
     "postcss": "^8.2.13",
     "prettier": "^2.2.1",

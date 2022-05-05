@@ -1,37 +1,20 @@
+const capsizePlugin = require('./dist/index').default
+
 module.exports = {
-  future: {
-    removeDeprecatedGapUtilities: true,
-    purgeLayersByDefault: true,
-    defaultLineHeights: true,
-    standardFontWeights: true,
-  },
-  purge: ['./tests/fixtures/index.html'],
+  content: ['./tests/fixtures/index.html'],
   theme: {
-    fontSize: {
-      base: '1rem',
-    },
-    lineHeight: {
-      solid: 1,
-    },
     fontFamily: {
-      sans: "'Inter var', system-ui",
+      sans: ['Inter var', 'system-ui'],
     },
 
     capsize: {
-      remFontSize: 16,
-      fontFamilies: {
-        sans: {
-          capHeight: 2048,
-          ascent: 2728,
-          descent: -680,
-          lineGap: 0,
-          unitsPerEm: 2816,
-        },
+      metrics: {
+        sans: require('@capsizecss/metrics/inter').fontMetrics,
       },
     },
 
     extend: {},
   },
   variants: {},
-  plugins: [require('./')],
+  plugins: [capsizePlugin({ baseFontSize: 16, className: 'capsize' })],
 }

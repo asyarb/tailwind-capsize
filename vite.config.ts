@@ -3,5 +3,7 @@
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-  test: {},
+  test: {
+    watchIgnore: ['node_modules'],
+  },
 })

@@ -6,7 +6,6 @@
     "strict": true,
     "strictNullChecks": true,
 
-    "esModuleInterop": true,
     "moduleResolution": "node",
 
     "noUncheckedIndexedAccess": true,
