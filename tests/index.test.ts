@@ -1,14 +1,31 @@
-import * as fs from 'fs/promises'
-import * as path from 'path'
-import postcss from 'postcss'
-import { test } from 'vitest'
+import { describe, expect, test, vi } from 'vitest'
+import { runTailwind } from './utils'
+import { Options } from '../src/validators'
 
-test('it works', async () => {
-  const cssFixture = await fs.readFile(
-    path.resolve(__dirname, './fixtures/index.css')
-  )
+describe('options', () => {
+  test('allows customization', async () => {
+    const opts: Options = {
+      baseFontSize: 10,
+      className: 'trim',
+    }
+    const spy = vi.spyOn(Options, 'parse')
 
-  const result = await postcss([require('tailwindcss')]).process(cssFixture, {
-    from: undefined,
+    await runTailwind(opts)
+
+    expect(spy).toHaveBeenCalledWith(opts)
+  })
+
+  test('throws if provided invalid customization options', async () => {
+    //@ts-expect-error - Testing runtime throwing.
+    await expect(runTailwind({ baseFontSize: '10' })).rejects.toThrowError()
+
+    //@ts-expect-error - Testing runtime throwing.
+    await expect(runTailwind({ className: 15 })).rejects.toThrowError()
+  })
+})
+
+describe.skip('validation', () => {
+  test('throws if given invalid plugin options', async () => {
+    expect(() => runTailwind()).toThrowError()
   })
 })

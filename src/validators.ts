@@ -18,8 +18,14 @@ export const Config = z.object({
 })
 export type Config = z.infer<typeof Config>
 
-export const Options = z.object({
-  baseFontSize: z.number().default(16),
-  className: z.string().default('capsize'),
-})
+export const Options = z
+  .object({
+    baseFontSize: z.number().default(16),
+    className: z.string().default('capsize'),
+  })
+  .default({
+    baseFontSize: 16,
+    className: 'capsize',
+  })
+
 export type Options = z.infer<typeof Options>

@@ -1,11 +1,11 @@
 import { Result, Dict } from '@swan-io/boxed'
-import type { TailwindArg } from 'tailwindcss/plugin'
+import type { TailwindContext } from 'tailwindcss/plugin'
 import type { Config, FontFamilies } from './validators'
 
 interface Arg {
   config: Config
   fontFamilies: FontFamilies
-  tw: TailwindArg
+  tw: TailwindContext
 }
 
 const ensureSameKeys = (
@@ -29,7 +29,5 @@ export const mapMetricsToFontUtils = ({ config, fontFamilies, tw }: Arg) =>
     Dict.entries(config.metrics).forEach(([key, metrics]) => {
       const className = `.font-${key}`
       const fontFamilyCssProperty = tw.theme(`fontFamily.${key}`)
-
-      console.log(fontFamilyCssProperty)
     })
   })

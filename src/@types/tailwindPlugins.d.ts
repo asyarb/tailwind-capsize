@@ -22,15 +22,18 @@ declare module 'tailwindcss/plugin' {
 
   export type TailwindPluginFn = (ctx: TailwindContext, config?: any) => void
 
-  interface TailwindPlugin {
-    (pluginFn: TailwindPluginFn, config?: any): void
+  type TailwindPlugin = () => void
+  type TailwindPluginWithOptions<T = unknown> = (options?: T) => void
+
+  interface TailwindPluginCreator {
+    (pluginFn: TailwindPluginFn, config?: any): TailwindPlugin
     withOptions<T = unknown>(
       pluginFnWithOpts: (options?: T) => TailwindPluginFn,
       config?: any
-    ): void
+    ): TailwindPluginWithOptions<T>
   }
 
-  const plugin: TailwindPlugin
+  const creator: TailwindPluginCreator
 
-  export default plugin
+  export default creator
 }

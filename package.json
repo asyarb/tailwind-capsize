@@ -17,11 +17,10 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "dev": "NODE_ENV=development pnpm run build",
-    "dev:test": "vitest",
-    "build": "tsup",
-    "build:prod": "NODE_ENV=production pnpm run build",
-    "test": "pnpm run build:prod && vitest run",
-    "prepublishOnly": "pnpm run build:prod"
+    "build": "NODE_ENV=production tsup",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepublishOnly": "pnpm run build"
   },
   "dependencies": {
     "@swan-io/boxed": "^0.8.0",
