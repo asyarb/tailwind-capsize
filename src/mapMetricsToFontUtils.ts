@@ -1,4 +1,5 @@
 import { Result, Dict } from '@swan-io/boxed'
+import { stripIndent } from 'common-tags'
 import type { TailwindContext } from 'tailwindcss/plugin'
 import type { Config, FontFamilies } from './validators'
 
@@ -17,7 +18,8 @@ const ensureSameKeys = (
 
   if (!metricKeys.every((key) => fontFamilyKeys.includes(key))) {
     return Result.Error(
-      'The keys provided in `capsize.metrics` do not match the keys specified in `fontFamily`.'
+      stripIndent`The keys provided in 'capsize.metrics' do not match the keys
+      specified in 'fontFamily'.`
     )
   }
 

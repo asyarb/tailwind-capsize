@@ -3,12 +3,18 @@ import * as path from 'path'
 import postcss from 'postcss'
 import tailwind from 'tailwindcss'
 import inter from '@capsizecss/metrics/inter'
+
 import capsizePlugin from '../src/index'
 import { Options } from '../src/validators'
 
 const CSS_PATH = path.resolve(__dirname, './fixtures/index.css')
 
-const config = (opts?: Options) => ({
+interface RunTailwindArgs {
+  options?: Options
+  theme?: Record<any, any>
+}
+
+const config = (args?: RunTailwindArgs) => ({
   content: ['./tests/fixtures/index.html'],
   theme: {
     fontFamily: {
@@ -21,15 +27,14 @@ const config = (opts?: Options) => ({
       },
     },
 
-    extend: {},
+    ...args?.theme,
   },
-  variants: {},
-  plugins: [capsizePlugin(opts)],
+  plugins: [capsizePlugin(args?.options)],
 })
 
-export async function runTailwind(opts?: Options): Promise<boolean> {
+export async function runTailwind(args?: RunTailwindArgs): Promise<boolean> {
   const css = await fs.readFile(CSS_PATH)
-  const plugins = [tailwind(config(opts))]
+  const plugins = [tailwind(config(args))]
 
   const result = await postcss(plugins).process(css, { from: undefined })
 
