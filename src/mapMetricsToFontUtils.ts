@@ -30,6 +30,12 @@ export const mapMetricsToFontUtils = ({ config, fontFamilies, tw }: Arg) =>
   ensureSameKeys(config, fontFamilies).map(() => {
     Dict.entries(config.metrics).forEach(([key, metrics]) => {
       const className = `.font-${key}`
-      const fontFamilyCssProperty = tw.theme(`fontFamily.${key}`)
+      const fontFamily = tw.theme(`fontFamily.${key}`)
+
+      tw.addUtilities({
+        [className]: {
+          fontFamily,
+        },
+      })
     })
   })
