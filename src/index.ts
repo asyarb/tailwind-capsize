@@ -4,7 +4,7 @@ import { Result } from '@swan-io/boxed'
 import { parseBoxed } from './parse'
 import { Config, FontFamilies, Options } from './validators'
 import { addMetricsToFontFamilyUtils } from './addMetricsToFontFamilyUtils'
-import { ensureSameKeys } from './ensureSameKeys'
+import { ensureSameFontKeys } from './ensureSameFontKeys'
 import { logAndThrow } from './logAndThrow'
 
 const tailwindCapsize = creator.withOptions<Options>((rawOptions) => (tw) => {
@@ -20,7 +20,7 @@ const tailwindCapsize = creator.withOptions<Options>((rawOptions) => (tw) => {
   // TODO: Only allow relative line-heights
   // TODO: Only allow number based font sizes?
   Result.allFromDict(ctx)
-    .flatMap(ensureSameKeys)
+    .flatMap(ensureSameFontKeys)
     .flatMap(addMetricsToFontFamilyUtils)
     .tapError(logAndThrow)
 })

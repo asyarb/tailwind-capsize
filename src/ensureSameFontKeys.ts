@@ -2,7 +2,7 @@ import { Dict, Result } from '@swan-io/boxed'
 import { stripIndent } from 'common-tags'
 import { Context } from './context'
 
-export const ensureSameKeys = (ctx: Context): Result<Context, string> => {
+export const ensureSameFontKeys = (ctx: Context): Result<Context, string> => {
   const fontFamilyKeys = Dict.keys(ctx.fontFamilies)
   const metricKeys = Dict.keys(ctx.config.metrics)
 
