@@ -15,6 +15,10 @@ const tailwindCapsize = creator.withOptions<Options>((rawOptions) => (tw) => {
     tw: Result.Ok(tw),
   }
 
+  // TODO: Map over every "text-" and add css variable --font-size
+  // TODO: Map over every "leading-" and add css variable --line-height
+  // TODO: Only allow relative line-heights
+  // TODO: Only allow number based font sizes?
   Result.allFromDict(ctx)
     .flatMap(ensureSameKeys)
     .flatMap(addMetricsToFontFamilyUtils)
