@@ -7,6 +7,7 @@ specifiers:
   '@types/node': ^17.0.31
   autoprefixer: ^10.4.5
   common-tags: ^1.8.2
+  css2json: ^1.1.1
   postcss: ^8.2.13
   prettier: ^2.2.1
   tailwindcss: ^3.0.24
@@ -26,6 +27,7 @@ devDependencies:
   '@types/common-tags': 1.8.1
   '@types/node': 17.0.31
   autoprefixer: 10.4.5_postcss@8.4.13
+  css2json: 1.1.1
   postcss: 8.4.13
   prettier: 2.6.2
   tailwindcss: 3.0.24
@@ -259,6 +261,10 @@ packages:
       path-key: 3.1.1
       shebang-command: 2.0.0
       which: 2.0.2
+    dev: true
+
+  /css2json/1.1.1:
+    resolution: {integrity: sha512-dyjBh8MbvAPISPmkaqU63ZenNdkHItsGzbKNqmHt+6atSTm2mByocN/8mbdSS7p4FQeZBfnG9J9TjmPbXtWuDQ==}
     dev: true
 
   /cssesc/3.0.0:

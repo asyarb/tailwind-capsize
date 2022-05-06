@@ -12,12 +12,12 @@ export const addMetricsToFontFamilyUtils = (
         const className = `.font-${key}`
         const styles = {
           fontFamily,
-          '--cap-height': metrics.capHeight,
-          '--ascent': metrics.ascent,
-          '--descent': metrics.descent,
-          '--line-gap': metrics.lineGap,
-          '--units-per-em': metrics.unitsPerEm,
-          '--x-height': metrics.xHeight,
+          '--cap-height': metrics.capHeight.toString(),
+          '--ascent': metrics.ascent.toString(),
+          '--descent': metrics.descent.toString(),
+          '--line-gap': metrics.lineGap.toString(),
+          '--units-per-em': metrics.unitsPerEm.toString(),
+          '--x-height': metrics.xHeight.toString(),
         }
 
         ctx.tw.addUtilities({ [className]: styles })

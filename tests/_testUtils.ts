@@ -32,7 +32,7 @@ const config = (args?: RunTailwindArgs) => ({
   plugins: [capsizePlugin(args?.options)],
 })
 
-export async function runTailwind(args?: RunTailwindArgs): Promise<boolean> {
+export async function runTailwind(args?: RunTailwindArgs): Promise<string> {
   const css = await fs.readFile(CSS_PATH)
   const resolvedConfig = config(args)
 
@@ -40,5 +40,5 @@ export async function runTailwind(args?: RunTailwindArgs): Promise<boolean> {
 
   const result = await postcss(plugins).process(css, { from: undefined })
 
-  return Boolean(result.css)
+  return result.css
 }
