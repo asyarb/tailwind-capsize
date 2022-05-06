@@ -1,13 +1,12 @@
 import { expect, test } from 'vitest'
-import { ZodError } from 'zod'
 import { runTailwind } from './_testUtils'
 
 test('throws if invalid config', async () => {
   const missing = { capsize: undefined }
   const invalid = { capsize: { metrics: { sans: { capHight: 100 } } } }
 
-  await expect(runTailwind({ theme: missing })).rejects.toThrowError(ZodError)
-  await expect(runTailwind({ theme: invalid })).rejects.toThrowError(ZodError)
+  await expect(runTailwind({ theme: missing })).rejects.toThrowError()
+  await expect(runTailwind({ theme: invalid })).rejects.toThrowError()
 })
 
 test('throws if "capsize.metrics[keys]" do not match "fontFamily[keys]"', async () => {

@@ -29,3 +29,6 @@ export const Options = z
   })
 
 export type Options = z.infer<typeof Options>
+
+export const FontFamilyRule = z.string()
+export type FontFamilyRule = z.infer<typeof FontFamilyRule>

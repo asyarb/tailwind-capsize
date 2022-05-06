@@ -16,10 +16,9 @@
   },
   "types": "./dist/index.d.ts",
   "scripts": {
-    "dev": "NODE_ENV=development pnpm run build",
+    "dev": "vitest",
     "build": "NODE_ENV=production tsup",
     "test": "vitest run",
-    "test:watch": "vitest",
     "prepublishOnly": "pnpm run build"
   },
   "dependencies": {

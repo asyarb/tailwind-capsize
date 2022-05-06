@@ -4,7 +4,7 @@ declare module 'tailwindcss/plugin' {
   export type ThemeFn = (key: string) => Record<string, unknown>
   export type EscapeFn = (className: string) => string
   export type AddUtilitiesFn = (
-    utilities: Record<string, Record<string, string>>
+    utilities: Record<string, Record<string, string | number>>
   ) => void
 
   type UtilityGeneratorFn = (value: ThemeValue) => Record<string, string>

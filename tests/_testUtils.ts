@@ -34,7 +34,9 @@ const config = (args?: RunTailwindArgs) => ({
 
 export async function runTailwind(args?: RunTailwindArgs): Promise<boolean> {
   const css = await fs.readFile(CSS_PATH)
-  const plugins = [tailwind(config(args))]
+  const resolvedConfig = config(args)
+
+  const plugins = [tailwind(resolvedConfig)]
 
   const result = await postcss(plugins).process(css, { from: undefined })
 
