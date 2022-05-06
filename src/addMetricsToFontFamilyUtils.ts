@@ -3,7 +3,7 @@ import { Context } from './context'
 import { parseBoxed } from './parse'
 import { FontFamilyRule } from './validators'
 
-export const mapMetricsToFontUtils = (
+export const addMetricsToFontFamilyUtils = (
   ctx: Context
 ): Result<Context, string> => {
   const results = Dict.entries(ctx.config.metrics).map(([key, metrics]) =>

@@ -3,19 +3,21 @@ import { Result } from '@swan-io/boxed'
 
 import { parseBoxed } from './parse'
 import { Config, FontFamilies, Options } from './validators'
-import { mapMetricsToFontUtils } from './mapMetricsToFontUtils'
+import { addMetricsToFontFamilyUtils } from './addMetricsToFontFamilyUtils'
 import { ensureSameKeys } from './ensureSameKeys'
 import { logAndThrow } from './logAndThrow'
 
 const tailwindCapsize = creator.withOptions<Options>((rawOptions) => (tw) => {
-  Result.allFromDict({
+  const ctx = {
     config: parseBoxed(Config, tw.theme('capsize')),
     fontFamilies: parseBoxed(FontFamilies, tw.theme('fontFamily')),
     options: parseBoxed(Options, rawOptions),
     tw: Result.Ok(tw),
-  })
+  }
+
+  Result.allFromDict(ctx)
     .flatMap(ensureSameKeys)
-    .flatMap(mapMetricsToFontUtils)
+    .flatMap(addMetricsToFontFamilyUtils)
     .tapError(logAndThrow)
 })
 
