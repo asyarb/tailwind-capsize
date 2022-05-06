@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-export const FontMetrics = z.object({
+const FontMetrics = z.object({
   capHeight: z.number(),
   ascent: z.number(),
   descent: z.number(),
@@ -8,15 +8,31 @@ export const FontMetrics = z.object({
   unitsPerEm: z.number(),
   xHeight: z.number(),
 })
-export type FontMetrics = z.infer<typeof FontMetrics>
+const FontSize = z.record(
+  z.union([
+    z.number(),
+    z.string(),
+    z.tuple([z.string(), z.string()]),
+    z.tuple([
+      z.string(),
+      z.object({
+        lineHeight: z.string().optional(),
+        letterSpacing: z.string().optional(),
+      }),
+    ]),
+  ])
+)
+const FontFamily = z.record(z.union([z.string(), z.array(z.string())]))
+const LineHeight = z.record(z.union([z.string(), z.number()]))
+const Capsize = z.object({ metrics: z.record(FontMetrics) })
 
-export const FontFamilies = z.record(z.union([z.string(), z.array(z.string())]))
-export type FontFamilies = z.infer<typeof FontFamilies>
-
-export const Config = z.object({
-  metrics: z.record(FontMetrics),
+export const Theme = z.object({
+  fontFamily: FontFamily,
+  lineHeight: LineHeight,
+  fontSize: FontSize,
+  capsize: Capsize,
 })
-export type Config = z.infer<typeof Config>
+export type Theme = z.infer<typeof Theme>
 
 export const Options = z
   .object({
@@ -27,8 +43,4 @@ export const Options = z
     baseFontSize: 16,
     className: 'capsize',
   })
-
 export type Options = z.infer<typeof Options>
-
-export const FontFamilyRule = z.string()
-export type FontFamilyRule = z.infer<typeof FontFamilyRule>

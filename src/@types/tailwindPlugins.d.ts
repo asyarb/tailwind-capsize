@@ -1,7 +1,19 @@
 declare module 'tailwindcss/plugin' {
   type ThemeValue = string | number | string[] | number[]
 
+  export interface Config {
+    content: string[]
+    theme: Record<string, unknown>
+    plugins: unknown[]
+    presets: unknown[]
+    prefix?: string
+    important?: boolean
+    separator?: string
+    corePlugins?: Record<string, boolean>
+  }
+
   export type ThemeFn = (key: string) => Record<string, unknown>
+  export type ConfigFn = (key?: string) => Config
   export type EscapeFn = (className: string) => string
   export type AddUtilitiesFn = (
     utilities: Record<string, Record<string, string>>
@@ -16,6 +28,7 @@ declare module 'tailwindcss/plugin' {
   export interface TailwindContext {
     e: EscapeFn
     theme: ThemeFn
+    config: ConfigFn
     addUtilities: AddUtilitiesFn
     matchUtilities: MatchUtilitiesFn
   }

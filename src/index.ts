@@ -1,25 +1,17 @@
 import creator from 'tailwindcss/plugin'
-import { Result } from '@swan-io/boxed'
 
-import { parseBoxed } from './parse'
-import { Config, FontFamilies, Options } from './validators'
+import { type Options } from './validators'
 import { addMetricsToFontFamilyUtils } from './addMetricsToFontFamilyUtils'
 import { ensureSameFontKeys } from './ensureSameFontKeys'
 import { logAndThrow } from './logAndThrow'
+import { createContext } from './context'
 
-const tailwindCapsize = creator.withOptions<Options>((rawOptions) => (tw) => {
-  const ctx = {
-    config: parseBoxed(Config, tw.theme('capsize')),
-    fontFamilies: parseBoxed(FontFamilies, tw.theme('fontFamily')),
-    options: parseBoxed(Options, rawOptions),
-    tw: Result.Ok(tw),
-  }
-
+const tailwindCapsize = creator.withOptions<Options>((options) => (tw) => {
   // TODO: Map over every "text-" and add css variable --font-size
   // TODO: Map over every "leading-" and add css variable --line-height
   // TODO: Only allow relative line-heights
   // TODO: Only allow number based font sizes?
-  Result.allFromDict(ctx)
+  createContext(options, tw)
     .flatMap(ensureSameFontKeys)
     .flatMap(addMetricsToFontFamilyUtils)
     .tapError(logAndThrow)

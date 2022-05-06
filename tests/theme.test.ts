@@ -1,7 +1,7 @@
 import { expect, test } from 'vitest'
 import { runTailwind } from './_testUtils'
 
-test('throws if invalid config', async () => {
+test('throws if invalid theme', async () => {
   const missing = { capsize: undefined }
   const invalid = { capsize: { metrics: { sans: { capHight: 100 } } } }
 
@@ -32,6 +32,6 @@ test('throws if "capsize.metrics[keys]" do not match "fontFamily[keys]"', async 
   await expect(runTailwind({ theme: mismatch })).rejects.toThrowError(Error)
 })
 
-test('runs with valid config', async () => {
+test('runs with valid theme', async () => {
   await expect(runTailwind()).resolves.toBeTruthy()
 })

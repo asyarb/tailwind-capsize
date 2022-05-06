@@ -3,8 +3,10 @@ import { stripIndent } from 'common-tags'
 import { Context } from './context'
 
 export const ensureSameFontKeys = (ctx: Context): Result<Context, string> => {
-  const fontFamilyKeys = Dict.keys(ctx.fontFamilies)
-  const metricKeys = Dict.keys(ctx.config.metrics)
+  const { theme } = ctx
+
+  const fontFamilyKeys = Dict.keys(theme.fontFamily)
+  const metricKeys = Dict.keys(theme.capsize.metrics)
 
   if (!metricKeys.every((key) => fontFamilyKeys.includes(key))) {
     return Result.Error(
