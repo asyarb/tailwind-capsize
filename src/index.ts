@@ -5,17 +5,16 @@ import { createContext } from './context'
 import { ensureSameFontKeys } from './ensureSameFontKeys'
 import { addMetricsToFontFamilyUtils } from './addMetricsToFontFamilyUtils'
 import { addCssVarsToFontSizes } from './addCssVarsToFontSizes'
+import { addCssVarsToLineHeights } from './addCssVarsToLineHeights'
 import { logAndThrow } from './logAndThrow'
 
 const tailwindCapsize = creator.withOptions<Options>((options) => (tw) => {
-  // TODO: Map over every "text-" and add css variable --font-size
-  // TODO: Map over every "leading-" and add css variable --line-height
-  // TODO: Only allow relative line-heights
-  // TODO: Only allow number based font sizes?
+  // TODO: Create `capsize` utility.
   createContext(options, tw)
     .flatMap(ensureSameFontKeys)
     .flatMap(addMetricsToFontFamilyUtils)
     .flatMap(addCssVarsToFontSizes)
+    .flatMap(addCssVarsToLineHeights)
     .tapError(logAndThrow)
 })
 
