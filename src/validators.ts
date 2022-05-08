@@ -1,5 +1,20 @@
 import { z } from 'zod'
 
+export const ThemeValue = z.union([z.number(), z.string()])
+export type ThemeValue = z.infer<typeof ThemeValue>
+export const FontSizeValue = z.union([
+  ThemeValue,
+  z.tuple([ThemeValue, ThemeValue]),
+  z.tuple([
+    ThemeValue,
+    z.object({
+      lineHeight: ThemeValue.optional(),
+      letterSpacing: ThemeValue.optional(),
+    }),
+  ]),
+])
+export type FontSizeValue = z.infer<typeof FontSizeValue>
+
 const FontMetrics = z.object({
   capHeight: z.number(),
   ascent: z.number(),
@@ -8,20 +23,7 @@ const FontMetrics = z.object({
   unitsPerEm: z.number(),
   xHeight: z.number(),
 })
-const FontSize = z.record(
-  z.union([
-    z.number(),
-    z.string(),
-    z.tuple([z.string(), z.string()]),
-    z.tuple([
-      z.string(),
-      z.object({
-        lineHeight: z.string().optional(),
-        letterSpacing: z.string().optional(),
-      }),
-    ]),
-  ])
-)
+const FontSize = z.record(FontSizeValue)
 const FontFamily = z.record(z.union([z.string(), z.array(z.string())]))
 const LineHeight = z.record(z.union([z.string(), z.number()]))
 const Capsize = z.object({ metrics: z.record(FontMetrics) })

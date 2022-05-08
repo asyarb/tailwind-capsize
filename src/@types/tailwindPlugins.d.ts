@@ -1,5 +1,12 @@
 declare module 'tailwindcss/plugin' {
-  type ThemeValue = string | number | string[] | number[]
+  export type ThemeValue = string | number
+  export type FontSizeThemeValue =
+    | ThemeValue
+    | [fontSize: ThemeValue, lineHeight: ThemeValue]
+    | [
+        fontSize: ThemeValue,
+        obj: { lineHeight?: ThemeValue; letterSpacing?: ThemeValue }
+      ]
 
   export interface Config {
     content: string[]
@@ -19,10 +26,10 @@ declare module 'tailwindcss/plugin' {
     utilities: Record<string, Record<string, string>>
   ) => void
 
-  type UtilityGeneratorFn = (value: ThemeValue) => Record<string, string>
-  export type MatchUtilitiesFn = (
-    utilities: Record<string, UtilityGeneratorFn>,
-    selector: { values: Record<string | number, ThemeValue> }
+  type UtilityGeneratorFn<T = any> = (value: T) => Record<string, string>
+  export type MatchUtilitiesFn<T = any> = (
+    utilities: Record<string, UtilityGeneratorFn<T>>,
+    selector: { values: Record<string, any> }
   ) => void
 
   export interface TailwindContext {
