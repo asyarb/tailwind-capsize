@@ -1,10 +1,7 @@
 import { ThemeValue } from './validators'
-import { Result } from '@swan-io/boxed'
 import { Context } from './context'
 
-export const addCssVarsToLineHeights = (
-  ctx: Context
-): Result<Context, string> => {
+export const addCssVarsToLineHeights = (ctx: Context): Context => {
   const { tw } = ctx
 
   tw.matchUtilities(
@@ -17,5 +14,5 @@ export const addCssVarsToLineHeights = (
     { values: tw.theme('lineHeight') }
   )
 
-  return Result.Ok(ctx)
+  return ctx
 }

@@ -11,14 +11,3 @@ test('it adds line height CSS vars to existing `leading-` utilities', async () =
     'line-height': 'var(--line-height)',
   })
 })
-
-test.skip('supports arbitrary values', async () => {
-  const css = cssToJson(await runTailwind())
-  const leading1_5 = css['.leading-\\[1px\\]']
-  console.log(css)
-
-  expect(leading1_5).toEqual({
-    '--line-height': '1.5',
-    'line-height': 'var(--line-height)',
-  })
-})

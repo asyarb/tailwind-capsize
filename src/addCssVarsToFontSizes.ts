@@ -1,9 +1,8 @@
 import { ThemeValue, FontSizeValue } from './validators'
-import { Result } from '@swan-io/boxed'
 import { Context } from './context'
 import { isNumber } from './utils/isNumber'
 
-const parsePx = (value: ThemeValue, ctx: Context): number => {
+const getValueAsNumber = (value: ThemeValue, ctx: Context): number => {
   if (isNumber(value)) {
     return value
   }
@@ -18,23 +17,21 @@ const parsePx = (value: ThemeValue, ctx: Context): number => {
   return Number.parseFloat(value)
 }
 
-const parseFontSize = (value: FontSizeValue, ctx: Context): number => {
+const fontSizeToPx = (value: FontSizeValue, ctx: Context): number => {
   if (Array.isArray(value)) {
-    return parsePx(value[0], ctx)
+    return getValueAsNumber(value[0], ctx)
   }
 
-  return parsePx(value, ctx)
+  return getValueAsNumber(value, ctx)
 }
 
-export const addCssVarsToFontSizes = (
-  ctx: Context
-): Result<Context, string> => {
+export const addCssVarsToFontSizes = (ctx: Context): Context => {
   const { tw } = ctx
 
   tw.matchUtilities(
     {
       text: (value: FontSizeValue) => ({
-        '--font-size': parseFontSize(value, ctx).toString(),
+        '--font-size': fontSizeToPx(value, ctx).toString(),
         'font-size': `calc(1px * var(--font-size))`,
         'line-height': 'inherit',
       }),
@@ -42,5 +39,5 @@ export const addCssVarsToFontSizes = (
     { values: tw.theme('fontSize') }
   )
 
-  return Result.Ok(ctx)
+  return ctx
 }

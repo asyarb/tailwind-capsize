@@ -7,14 +7,15 @@ import { addMetricsToFontFamilyUtils } from './addMetricsToFontFamilyUtils'
 import { addCssVarsToFontSizes } from './addCssVarsToFontSizes'
 import { addCssVarsToLineHeights } from './addCssVarsToLineHeights'
 import { logAndThrow } from './logAndThrow'
+import { createCapsizeUtil } from './createCapsizeUtil'
 
 const tailwindCapsize = creator.withOptions<Options>((options) => (tw) => {
-  // TODO: Create `capsize` utility.
   createContext(options, tw)
     .flatMap(ensureSameFontKeys)
+    .map(createCapsizeUtil)
+    .map(addCssVarsToFontSizes)
+    .map(addCssVarsToLineHeights)
     .flatMap(addMetricsToFontFamilyUtils)
-    .flatMap(addCssVarsToFontSizes)
-    .flatMap(addCssVarsToLineHeights)
     .tapError(logAndThrow)
 })
 
