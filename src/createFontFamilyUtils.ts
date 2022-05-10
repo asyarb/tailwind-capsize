@@ -3,7 +3,7 @@ import { z } from 'zod'
 import { Context } from './context'
 import { parseBoxed } from './parse'
 
-export const addMetricsToFontFamilyUtils = (
+export const createFontFamilyUtils = (
   ctx: Context
 ): Result<Context, string> => {
   const { theme, tw } = ctx

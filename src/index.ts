@@ -3,7 +3,7 @@ import creator from 'tailwindcss/plugin'
 import { type Options } from './validators'
 import { createContext } from './context'
 import { ensureSameFontKeys } from './ensureSameFontKeys'
-import { addMetricsToFontFamilyUtils } from './addMetricsToFontFamilyUtils'
+import { createFontFamilyUtils } from './createFontFamilyUtils'
 import { addCssVarsToFontSizes } from './addCssVarsToFontSizes'
 import { addCssVarsToLineHeights } from './addCssVarsToLineHeights'
 import { logAndThrow } from './logAndThrow'
@@ -23,7 +23,7 @@ const tailwindCapsize = creator.withOptions<Options>(
       .flatMap(ensureSameFontKeys)
       .map(addCssVarsToFontSizes)
       .map(addCssVarsToLineHeights)
-      .flatMap(addMetricsToFontFamilyUtils)
+      .flatMap(createFontFamilyUtils)
       .map(createCapsizeUtil)
       .tapError(logAndThrow)
   },
