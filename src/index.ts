@@ -13,6 +13,7 @@ const DEFAULT_CONFIG = {
   corePlugins: {
     fontSize: false,
     lineHeight: false,
+    fontFamily: false,
   },
 }
 

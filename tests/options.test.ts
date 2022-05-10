@@ -5,6 +5,6 @@ test('throws if provided invalid customization options', async () => {
   const config: any = { options: { baseFontSize: '10' } }
   await expect(runTailwind(config)).rejects.toThrowError()
 
-  const config2: any = { options: { baseFontSize: '10' } }
+  const config2: any = { options: { className: 100 } }
   await expect(runTailwind(config2)).rejects.toThrowError()
 })
