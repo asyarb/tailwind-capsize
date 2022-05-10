@@ -10,8 +10,8 @@ test('it adds correct styles to :root', async () => {
     {
       "--root-font-size": "16",
       "--root-line-height": "1.2",
-      "font-size": "16",
-      "line-height": "1.2",
+      "font-size": "var(--root-font-size)",
+      "line-height": "var(--root-line-height)",
     }
   `)
 })
@@ -26,8 +26,8 @@ test('it supports customization :root', async () => {
     {
       "--root-font-size": "10",
       "--root-line-height": "1.5",
-      "font-size": "10",
-      "line-height": "1.5",
+      "font-size": "var(--root-font-size)",
+      "line-height": "var(--root-line-height)",
     }
   `)
 })
