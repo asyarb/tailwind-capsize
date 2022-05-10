@@ -3,11 +3,12 @@ import { Context } from './context'
 export const createCapsizeUtil = (ctx: Context): Context => {
   const { tw, options } = ctx
 
-  const before = options.className + '::before'
-  const after = options.className + '::after'
+  const className = '.' + options.className
+  const before = className + '::before'
+  const after = className + '::after'
 
   tw.addUtilities({
-    [options.className]: {
+    [className]: {
       '--absolute-descent': 'max(var(--descent), -1 * var(--descent))',
       '--cap-height-scale': 'calc(var(--cap-height) / var(--units-per-em))',
       '--descent-scale': 'calc(var(--absolute-descent) / var(--units-per-em))',
