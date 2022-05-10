@@ -9,6 +9,8 @@ export const createCapsizeUtil = (ctx: Context): Context => {
 
   tw.addUtilities({
     [className]: {
+      '--line-height-numeric': 'calc(var(--font-size) * var(--line-height))',
+
       '--absolute-descent': 'max(var(--descent), -1 * var(--descent))',
       '--cap-height-scale': 'calc(var(--cap-height) / var(--units-per-em))',
       '--descent-scale': 'calc(var(--absolute-descent) / var(--units-per-em))',
@@ -21,29 +23,33 @@ export const createCapsizeUtil = (ctx: Context): Context => {
       '--line-height-normal':
         'calc(var(--line-height-scale) * var(--font-size))',
 
-      '--specified-line-height-offset':
-        'calc((var(--line-height-normal) - var(--line-height)) / 2)',
-
-      '--ch-trim':
+      '--cap-height-trim-param':
         'calc(var(--ascent-scale) - var(--cap-height-scale) + var(--line-gap-scale) / 2)',
-      '--cap-height-trim':
-        'calc(-1 * (var(--ch-trim) - var(--specified-line-height-offset) / var(--font-size)))',
+      '--baseline-trim-param':
+        'calc(var(--descent-scale) + var(--line-gap-scale) / 2)',
 
-      '--bl-trim': 'calc(var(--descent-scale) + var(--line-gap-scale) / 2)',
-      '--baseline-trim':
-        'calc(-1 * (var(--bl-trim) - var(--specified-line-height-offset) / var(--font-size)))',
+      '--specified-line-height-offset':
+        'calc((var(--line-height-normal) - var(--line-height-numeric)) / 2)',
+
+      '--cap-height-trim-val':
+        'calc(var(--cap-height-trim-param) - var(--specified-line-height-offset) / var(--font-size))',
+      '--baseline-trim-val':
+        'calc(var(--baseline-trim-param) - var(--specified-line-height-offset) / var(--font-size))',
+
+      '--cap-height-trim': 'calc(var(--cap-height-trim-val) * -1)',
+      '--baseline-trim': 'calc(var(--baseline-trim-val) * -1)',
     },
 
     [before]: {
       content: '""',
       display: 'table',
-      marginBottom: 'calc(-1em * var(--cap-height-trim))',
+      marginBottom: 'calc(1em * var(--cap-height-trim))',
     },
 
     [after]: {
       content: '""',
       display: 'table',
-      marginTop: 'calc(-1em * var(--baseline-trim))',
+      marginTop: 'calc(1em * var(--baseline-trim))',
     },
   })
 
