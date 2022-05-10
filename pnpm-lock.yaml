@@ -8,7 +8,6 @@ specifiers:
   autoprefixer: ^10.4.5
   common-tags: ^1.8.2
   css2json: ^1.1.1
-  just-map-values: ^3.0.2
   postcss: ^8.2.13
   prettier: ^2.2.1
   tailwindcss: ^3.0.24
@@ -21,7 +20,6 @@ specifiers:
 dependencies:
   '@swan-io/boxed': 0.8.0
   common-tags: 1.8.2
-  just-map-values: 3.0.2
   zod: 3.14.4
 
 devDependencies:
@@ -716,10 +714,6 @@ packages:
     resolution: {integrity: sha512-34wB/Y7MW7bzjKRjUKTa46I2Z7eV62Rkhva+KkopW7Qvv/OSWBqvkSY7vusOPrNuZcUG3tApvdVgNB8POj3SPw==}
     engines: {node: '>=10'}
     dev: true
-
-  /just-map-values/3.0.2:
-    resolution: {integrity: sha512-bPrvJIZ/0QbrsnrY1f8JxfPZ7joimSecUeYjoxVctBTYxjRKjtVU1QMgAJCK5RTo5bNGonVY7FxrwQ+gQrIyww==}
-    dev: false
 
   /lilconfig/2.0.5:
     resolution: {integrity: sha512-xaYmXZtTHPAw5m+xLN8ab9C+3a8YmV3asNSPOATITbtwrfbwaLJj8h66H1WMIpALCkqsIzK3h7oQ+PdX+LQ9Eg==}
