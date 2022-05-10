@@ -4,8 +4,8 @@ import { type Options } from './validators'
 import { createContext } from './context'
 import { ensureSameFontKeys } from './ensureSameFontKeys'
 import { createFontFamilyUtils } from './createFontFamilyUtils'
-import { addCssVarsToFontSizes } from './addCssVarsToFontSizes'
-import { addCssVarsToLineHeights } from './addCssVarsToLineHeights'
+import { createFontSizeUtils } from './createFontSizeUtils'
+import { createLineHeightUtils } from './createLineHeightUtils'
 import { logAndThrow } from './logAndThrow'
 import { createCapsizeUtil } from './createCapsizeUtil'
 
@@ -21,8 +21,8 @@ const tailwindCapsize = creator.withOptions<Options>(
   (options) => (tw) => {
     createContext(options, tw)
       .flatMap(ensureSameFontKeys)
-      .map(addCssVarsToFontSizes)
-      .map(addCssVarsToLineHeights)
+      .map(createFontSizeUtils)
+      .map(createLineHeightUtils)
       .flatMap(createFontFamilyUtils)
       .map(createCapsizeUtil)
       .tapError(logAndThrow)

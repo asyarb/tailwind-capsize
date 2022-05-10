@@ -25,7 +25,7 @@ const fontSizeToPx = (value: FontSizeValue, ctx: Context): number => {
   return getValueAsNumber(value, ctx)
 }
 
-export const addCssVarsToFontSizes = (ctx: Context): Context => {
+export const createFontSizeUtils = (ctx: Context): Context => {
   const { tw } = ctx
 
   tw.matchUtilities(

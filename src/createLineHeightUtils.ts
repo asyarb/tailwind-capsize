@@ -1,7 +1,7 @@
 import { ThemeValue } from './validators'
 import { Context } from './context'
 
-export const addCssVarsToLineHeights = (ctx: Context): Context => {
+export const createLineHeightUtils = (ctx: Context): Context => {
   const { tw } = ctx
 
   tw.matchUtilities(
