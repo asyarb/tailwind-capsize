@@ -9,7 +9,8 @@ export const createCapsizeUtil = (ctx: Context): Context => {
 
   tw.addUtilities({
     [className]: {
-      '--line-height-numeric': 'calc(var(--font-size) * var(--line-height))',
+      '--line-height-numeric':
+        'calc(var(--font-size) * var(--line-height, var(--root-line-height)))',
 
       '--absolute-descent': 'max(var(--descent), -1 * var(--descent))',
       '--cap-height-scale': 'calc(var(--cap-height) / var(--units-per-em))',

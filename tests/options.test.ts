@@ -7,4 +7,7 @@ test('throws if provided invalid customization options', async () => {
 
   const config2: any = { options: { className: 100 } }
   await expect(runTailwind(config2)).rejects.toThrowError()
+
+  const config3: any = { options: { rootLineHeight: '1.6' } }
+  await expect(runTailwind(config3)).rejects.toThrowError()
 })

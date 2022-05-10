@@ -39,10 +39,12 @@ export type Theme = z.infer<typeof Theme>
 export const Options = z
   .object({
     rootFontSize: z.number().default(16),
+    rootLineHeight: z.number().default(1.2),
     className: z.string().default('capsize'),
   })
   .default({
     rootFontSize: 16,
+    rootLineHeight: 1.2,
     className: 'capsize',
   })
 export type Options = z.infer<typeof Options>

@@ -18,8 +18,8 @@ npm i --save-dev @asyarb/tailwindcss-capsize
 ## Configuration
 
 To get started, add a `capsize` key to your Tailwind theme. The value for
-`capsize` should be an object whose keys map to the keys in the
-`theme.fontFamily` with values that are "font metrics".
+`capsize` should be an object whose keys map to the keys in `theme.fontFamily`
+with values that are "font metrics".
 
 See below for an example config:
 
@@ -43,6 +43,9 @@ module.exports = {
   plugins: [require('@asyarb/tailwind-capsize')],
 }
 ```
+
+To learn how to get the metrics for your font, please reference the
+[Capsize Website](https://seek-oss.github.io/capsize/).
 
 ## Usage
 
