@@ -23,7 +23,7 @@ test('it creates the `capsize` utility', async () => {
       "--descent-scale": "calc(var(--absolute-descent) / var(--units-per-em))",
       "--line-gap-scale": "calc(var(--line-gap) / var(--units-per-em))",
       "--line-height-normal": "calc(var(--line-height-scale) * var(--font-size))",
-      "--line-height-numeric": "calc(var(--font-size) * var(--line-height))",
+      "--line-height-numeric": "calc(var(--font-size) * var(--line-height, var(--root-line-height)))",
       "--line-height-scale": "calc(var(--content-area) / var(--units-per-em))",
       "--specified-line-height-offset": "calc((var(--line-height-normal) - var(--line-height-numeric)) / 2)",
     }
