@@ -42,7 +42,6 @@ export const Options = z
     rootLineHeight: z.number().default(1.2),
     className: z.string().default('capsize'),
   })
-  .partial()
   .default({
     rootFontSize: 16,
     rootLineHeight: 1.2,

@@ -18,7 +18,7 @@ const DEFAULT_CONFIG = {
   },
 }
 
-const tailwindCapsize = creator.withOptions<Options>(
+const tailwindCapsize = creator.withOptions<Partial<Options>>(
   (options) => (tw) => {
     createContext(options, tw)
       .flatMap(ensureSameFontKeys)

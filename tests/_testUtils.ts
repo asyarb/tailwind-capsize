@@ -10,7 +10,7 @@ import { Options } from '../src/validators'
 const CSS_PATH = path.resolve(__dirname, './fixtures/index.css')
 
 interface RunTailwindArgs {
-  options?: Options
+  options?: Partial<Options>
   theme?: Record<any, any>
 }
 
