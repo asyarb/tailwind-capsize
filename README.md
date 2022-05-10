@@ -2,8 +2,7 @@
 
 TailwindCSS plugin to generate utilities that trim the whitespace above and
 below web typography. Based on the great work in the
-[Capsize](https://github.com/seek-oss/capsize) library, and implemented in CSS
-variables.
+[Capsize](https://github.com/seek-oss/capsize) library.
 
 - [Installation](#installation)
 - [Configuration](#configuration)
