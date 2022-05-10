@@ -46,10 +46,10 @@ declare module 'tailwindcss/plugin' {
   type TailwindPluginWithOptions<T = unknown> = (options?: T) => void
 
   interface TailwindPluginCreator {
-    (pluginFn: TailwindPluginFn, config?: any): TailwindPlugin
+    (pluginFn: TailwindPluginFn, defaultConfig?: any): TailwindPlugin
     withOptions<T = unknown>(
       pluginFnWithOpts: (options?: T) => TailwindPluginFn,
-      config?: any
+      defaultConfigFn?: (options?: T) => any
     ): TailwindPluginWithOptions<T>
   }
 

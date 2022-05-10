@@ -19,7 +19,7 @@
     "dev": "vitest",
     "build": "NODE_ENV=production tsup",
     "test": "vitest run",
-    "preview": "vite",
+    "preview": "pnpm build && vite serve ./tests/fixtures",
     "prepublishOnly": "pnpm run build"
   },
   "dependencies": {

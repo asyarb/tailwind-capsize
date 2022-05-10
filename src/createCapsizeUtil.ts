@@ -35,13 +35,13 @@ export const createCapsizeUtil = (ctx: Context): Context => {
     },
 
     [before]: {
-      content: '',
+      content: '""',
       display: 'table',
       marginBottom: 'calc(-1em * var(--cap-height-trim))',
     },
 
     [after]: {
-      content: '',
+      content: '""',
       display: 'table',
       marginTop: 'calc(-1em * var(--baseline-trim))',
     },

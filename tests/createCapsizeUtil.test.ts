@@ -27,14 +27,14 @@ test('it creates the `capsize` utility', async () => {
   `)
   expect(capsizeBefore).toMatchInlineSnapshot(`
     {
-      "content": "",
+      "content": "\\"\\"",
       "display": "table",
       "margin-bottom": "calc(-1em * var(--cap-height-trim))",
     }
   `)
   expect(capsizeAfter).toMatchInlineSnapshot(`
     {
-      "content": "",
+      "content": "\\"\\"",
       "display": "table",
       "margin-top": "calc(-1em * var(--baseline-trim))",
     }

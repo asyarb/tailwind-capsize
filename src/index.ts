@@ -9,14 +9,24 @@ import { addCssVarsToLineHeights } from './addCssVarsToLineHeights'
 import { logAndThrow } from './logAndThrow'
 import { createCapsizeUtil } from './createCapsizeUtil'
 
-const tailwindCapsize = creator.withOptions<Options>((options) => (tw) => {
-  createContext(options, tw)
-    .flatMap(ensureSameFontKeys)
-    .map(createCapsizeUtil)
-    .map(addCssVarsToFontSizes)
-    .map(addCssVarsToLineHeights)
-    .flatMap(addMetricsToFontFamilyUtils)
-    .tapError(logAndThrow)
-})
+const DEFAULT_CONFIG = {
+  corePlugins: {
+    fontSize: false,
+    lineHeight: false,
+  },
+}
+
+const tailwindCapsize = creator.withOptions<Options>(
+  (options) => (tw) => {
+    createContext(options, tw)
+      .flatMap(ensureSameFontKeys)
+      .map(addCssVarsToFontSizes)
+      .map(addCssVarsToLineHeights)
+      .flatMap(addMetricsToFontFamilyUtils)
+      .map(createCapsizeUtil)
+      .tapError(logAndThrow)
+  },
+  (_options) => DEFAULT_CONFIG
+)
 
 export default tailwindCapsize

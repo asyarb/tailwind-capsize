@@ -1,0 +1,62 @@
+.foo {
+  --font-size: 24;
+  --line-height: 1;
+
+  font-size: calc(var(--font-size) * 1px);
+  line-height: var(--line-height);
+}
+
+.foo-inter {
+  --cap-height: 2048;
+  --ascent: 2728;
+  --descent: -680;
+  --line-gap: 0;
+  --units-per-em: 2816;
+  --x-height: 1536;
+
+  font-family: 'Inter var', system-ui;
+}
+
+.foo-capsize {
+  --absolute-descent: max(var(--descent), -1 * var(--descent));
+  --cap-height-scale: calc(var(--cap-height) / var(--units-per-em));
+  --descent-scale: calc(var(--absolute-descent) / var(--units-per-em));
+  --ascent-scale: calc(var(--ascent) / var(--units-per-em));
+  --line-gap-scale: calc(var(--line-gap) / var(--units-per-em));
+
+  --content-area: calc(
+    var(--ascent) + var(--line-gap) + var(--absolute-descent)
+  );
+  --line-height-scale: calc(var(--content-area) / var(--units-per-em));
+  --line-height-normal: calc(var(--line-height-scale) * var(--font-size));
+
+  --specified-line-height-offset: calc(
+    (var(--line-height-normal) - var(--line-height)) / 2
+  );
+
+  --ch-trim: calc(
+    var(--ascent-scale) - var(--cap-height-scale) + var(--line-gap-scale) / 2
+  );
+  --cap-height-trim: calc(
+    -1 * (var(--ch-trim) - var(--specified-line-height-offset) /
+          var(--font-size))
+  );
+
+  --bl-trim: calc(var(--descent-scale) + var(--line-gap-scale) / 2);
+  --baseline-trim: calc(
+    -1 * (var(--bl-trim) - var(--specified-line-height-offset) /
+          var(--font-size))
+  );
+}
+
+.foo-capsize::before {
+  content: '';
+  display: table;
+  margin-bottom: calc(-1em * var(--cap-height-trim));
+}
+
+.foo-capsize::after {
+  content: '';
+  display: table;
+  margin-top: calc(-1em * var(--baseline-trim));
+}

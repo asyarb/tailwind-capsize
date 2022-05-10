@@ -33,7 +33,6 @@ export const addCssVarsToFontSizes = (ctx: Context): Context => {
       text: (value: FontSizeValue) => ({
         '--font-size': fontSizeToPx(value, ctx).toString(),
         'font-size': `calc(1px * var(--font-size))`,
-        'line-height': 'inherit',
       }),
     },
     { values: tw.theme('fontSize') }
