@@ -8,6 +8,7 @@ import { createFontSizeUtils } from './createFontSizeUtils'
 import { createLineHeightUtils } from './createLineHeightUtils'
 import { logAndThrow } from './logAndThrow'
 import { createCapsizeUtil } from './createCapsizeUtil'
+import { createRootVariables } from './createRootVariables'
 
 const DEFAULT_CONFIG = {
   corePlugins: {
@@ -21,6 +22,7 @@ const tailwindCapsize = creator.withOptions<Options>(
   (options) => (tw) => {
     createContext(options, tw)
       .flatMap(ensureSameFontKeys)
+      .map(createRootVariables)
       .map(createFontSizeUtils)
       .map(createLineHeightUtils)
       .flatMap(createFontFamilyUtils)

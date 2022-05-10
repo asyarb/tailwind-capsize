@@ -9,7 +9,7 @@ const getValueAsNumber = (value: ThemeValue, ctx: Context): number => {
 
   if (value.endsWith('rem')) {
     const remValue = Number.parseFloat(value.split('rem').at(0) as string)
-    const size = remValue * ctx.options.baseFontSize
+    const size = remValue * ctx.options.rootFontSize
 
     return size
   }
@@ -32,7 +32,7 @@ export const createFontSizeUtils = (ctx: Context): Context => {
     {
       text: (value: FontSizeValue) => ({
         '--font-size': fontSizeToPx(value, ctx).toString(),
-        'font-size': `calc(1px * var(--font-size))`,
+        fontSize: 'calc((var(--font-size) / var(--root-font-size)) * 1rem)',
       }),
     },
     { values: tw.theme('fontSize') }

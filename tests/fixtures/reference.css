@@ -1,8 +1,12 @@
-.foo {
+:root {
+  --root-font-size: 16;
+}
+
+.text {
   --font-size: 24;
   --line-height: 1.25;
 
-  font-size: calc(var(--font-size) * 1px);
+  font-size: calc((var(--font-size) / var(--root-font-size)) * 1rem);
   line-height: var(--line-height);
 }
 
