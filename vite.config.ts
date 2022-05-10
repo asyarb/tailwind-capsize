@@ -3,7 +3,6 @@
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-  test: {
-    watchIgnore: ['node_modules'],
-  },
+  root: './tests/fixtures',
+  test: { watchIgnore: ['node_modules'] },
 })
