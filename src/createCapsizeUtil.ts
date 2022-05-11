@@ -1,11 +1,15 @@
 import { Context } from './context'
 
-export const createCapsizeUtil = (ctx: Context): Context => {
+export const createCapsizeUtil = (ctx: Context): void => {
   const { tw, options } = ctx
 
   const className = '.' + options.className
   const before = className + '::before'
   const after = className + '::after'
+
+  const noClassName = '.no-' + options.className
+  const noBefore = noClassName + '::before'
+  const noAfter = noClassName + '::after'
 
   tw.addUtilities({
     [className]: {
@@ -52,7 +56,9 @@ export const createCapsizeUtil = (ctx: Context): Context => {
       display: 'table',
       marginTop: 'calc(1em * var(--baseline-trim))',
     },
-  })
 
-  return ctx
+    [`${noBefore}, ${noAfter}`]: {
+      content: 'none',
+    },
+  })
 }

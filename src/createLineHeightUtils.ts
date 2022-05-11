@@ -1,7 +1,7 @@
 import { ThemeValue } from './validators'
 import { Context } from './context'
 
-export const createLineHeightUtils = (ctx: Context): Context => {
+export const createLineHeightUtils = (ctx: Context): void => {
   const { tw } = ctx
 
   tw.matchUtilities(
@@ -13,6 +13,4 @@ export const createLineHeightUtils = (ctx: Context): Context => {
     },
     { values: tw.theme('lineHeight') }
   )
-
-  return ctx
 }

@@ -4,9 +4,12 @@ import { runTailwind } from './_testUtils'
 
 test('it creates the `capsize` utility', async () => {
   const css = cssToJson(await runTailwind())
+
   const capsize = css['.capsize']
   const capsizeBefore = css['.capsize::before']
   const capsizeAfter = css['.capsize::after']
+  const noCapsizeBefore = css['.no-capsize::before']
+  const noCapsizeAfter = css['.no-capsize::after']
 
   expect(capsize).toMatchInlineSnapshot(`
     {
@@ -40,6 +43,16 @@ test('it creates the `capsize` utility', async () => {
       "content": "\\"\\"",
       "display": "table",
       "margin-top": "calc(1em * var(--baseline-trim))",
+    }
+  `)
+  expect(noCapsizeBefore).toMatchInlineSnapshot(`
+    {
+      "content": "none",
+    }
+  `)
+  expect(noCapsizeAfter).toMatchInlineSnapshot(`
+    {
+      "content": "none",
     }
   `)
 })

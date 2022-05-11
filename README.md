@@ -7,7 +7,9 @@ below web typography. Based on the great work in the
 - [Installation](#installation)
 - [Configuration](#configuration)
 - [Usage](#usage)
-  - [Usage with @apply](#usage-with-apply)
+  - [With @apply](#with-apply)
+  - [Trimming by default](#trimming-by-default)
+    - [Opting out of trimming](#opting-out-of-trimming)
 - [Options](#options)
 - [Limitations](#limitations)
 - [Plain CSS Version](#plain-css-version)
@@ -67,7 +69,7 @@ Usage is best explained with an example:
 </div>
 ```
 
-### Usage with @apply
+### With @apply
 
 Use the `@apply` directive normally:
 
@@ -75,6 +77,29 @@ Use the `@apply` directive normally:
 p {
   @apply capsize font-sans text-xl leading-none;
 }
+```
+
+### Trimming by default
+
+This plugin currently does not support applying the `capsize` class by default.
+If you wish to trim text elements by default, consider using `@apply`:
+
+```css
+:where(h1, h2, h3, h4, h5, h6, p) {
+  @apply capsize;
+}
+```
+
+#### Opting out of trimming
+
+If you've applied trimming higher up in the cascade, you can undo trimming via
+the `no-capsize` utility.
+
+```html
+<!-- Or rely on the cascade -->
+<div class="applies-capsize">
+  <p class="no-capsize">I will not be trimmed!</p>
+</div>
 ```
 
 ## Options
@@ -98,7 +123,7 @@ module.exports = {
 
 | **Option**       | **Type** | **Description**                                                                                                            | **Default** |
 | ---------------- | :------: | -------------------------------------------------------------------------------------------------------------------------- | :---------: |
-| `className`      | `string` | Class used to apply the "trimming styles" to an element.                                                                   | `"capsize"` |
+| `className`      | `string` | Class used to apply the "trimming styles" to an element. Also affects the `no-` undo trim utility.                         | `"capsize"` |
 | `rootFontSize`   | `number` | `font-size` specified in `:root`. Used to calculate correct `rem` units.                                                   |    `16`     |
 | `rootLineHeight` | `number` | `line-height` specified in `:root`. Used as line height in trimming calculations when a `leading-` class is not specified. |    `1.2`    |
 

@@ -1,6 +1,6 @@
 import { Context } from './context'
 
-export const createRootVariables = (ctx: Context): Context => {
+export const createRootVariables = (ctx: Context): void => {
   const { tw, options } = ctx
 
   tw.addUtilities({
@@ -11,6 +11,4 @@ export const createRootVariables = (ctx: Context): Context => {
       lineHeight: 'var(--root-line-height)',
     },
   })
-
-  return ctx
 }
