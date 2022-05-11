@@ -95,8 +95,13 @@ If you wish to trim text elements by default, consider using `@apply`:
 If you've applied trimming higher up in the cascade, you can undo trimming via
 the `no-capsize` utility.
 
+```css
+:where(.applies-capsize > p) {
+  @apply capsize;
+}
+```
+
 ```html
-<!-- `applies-capsize` uses `@apply` to set the `capsize` styles. -->
 <div class="applies-capsize">
   <p class="no-capsize">I will not be trimmed!</p>
 </div>
