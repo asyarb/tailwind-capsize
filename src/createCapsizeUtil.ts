@@ -36,25 +36,22 @@ export const createCapsizeUtil = (ctx: Context): void => {
       '--specified-line-height-offset':
         'calc((var(--line-height-normal) - var(--line-height-numeric)) / 2)',
 
-      '--cap-height-trim-val':
+      '--cap-height-trim':
         'calc(var(--cap-height-trim-param) - var(--specified-line-height-offset) / var(--font-size))',
-      '--baseline-trim-val':
+      '--baseline-trim':
         'calc(var(--baseline-trim-param) - var(--specified-line-height-offset) / var(--font-size))',
-
-      '--cap-height-trim': 'calc(var(--cap-height-trim-val) * -1)',
-      '--baseline-trim': 'calc(var(--baseline-trim-val) * -1)',
     },
 
     [before]: {
       content: '""',
       display: 'table',
-      marginBottom: 'calc(1em * var(--cap-height-trim))',
+      marginBottom: 'calc(var(--cap-height-trim) * -1em)',
     },
 
     [after]: {
       content: '""',
       display: 'table',
-      marginTop: 'calc(1em * var(--baseline-trim))',
+      marginTop: 'calc(var(--baseline-trim) * -1em)',
     },
 
     [`${noBefore}, ${noAfter}`]: {
