@@ -1,6 +1,6 @@
 {
   "name": "@asyarb/tailwind-capsize",
-  "version": "0.3.0",
+  "version": "0.2.0",
   "description": "Tailwind to create capsize typography utilities.",
   "repository": "https://github.com/asyarb/tailwind-capsize",
   "author": "Anthony Yarbrough <asyarb@hawaii.edu>",
