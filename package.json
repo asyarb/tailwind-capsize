@@ -1,6 +1,6 @@
 {
   "name": "@asyarb/tailwind-capsize",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Tailwind to create capsize typography utilities.",
   "repository": "https://github.com/asyarb/tailwind-capsize",
   "author": "Anthony Yarbrough <asyarb@hawaii.edu>",
@@ -20,7 +20,8 @@
     "build": "NODE_ENV=production tsup",
     "test": "vitest run",
     "preview": "pnpm build && vite serve ./tests/fixtures",
-    "prepublishOnly": "pnpm run build"
+    "prepublishOnly": "pnpm run build",
+    "changelog": "pnpm standard-version"
   },
   "dependencies": {
     "@swan-io/boxed": "^0.8.0",
