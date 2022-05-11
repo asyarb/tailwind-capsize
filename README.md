@@ -92,8 +92,8 @@ If you wish to trim text elements by default, consider using `@apply`:
 
 #### Opting out of trimming
 
-If you've applied trimming to a node higher up in the cascade, you can undo
-trimming via the `no-capsize` utility.
+If you've applied trimming higher up in the cascade, you can undo trimming via
+the `no-capsize` utility.
 
 ```html
 <!-- Or rely on the cascade -->
