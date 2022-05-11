@@ -25,7 +25,7 @@ const fontSizeToPx = (value: FontSizeValue, ctx: Context): number => {
   return getValueAsNumber(value, ctx)
 }
 
-export const createFontSizeUtils = (ctx: Context): Context => {
+export const createFontSizeUtils = (ctx: Context): void => {
   const { tw } = ctx
 
   tw.matchUtilities(
@@ -37,6 +37,4 @@ export const createFontSizeUtils = (ctx: Context): Context => {
     },
     { values: tw.theme('fontSize') }
   )
-
-  return ctx
 }

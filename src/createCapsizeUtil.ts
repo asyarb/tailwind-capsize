@@ -1,6 +1,6 @@
 import { Context } from './context'
 
-export const createCapsizeUtil = (ctx: Context): Context => {
+export const createCapsizeUtil = (ctx: Context): void => {
   const { tw, options } = ctx
 
   const className = '.' + options.className
@@ -53,6 +53,4 @@ export const createCapsizeUtil = (ctx: Context): Context => {
       marginTop: 'calc(1em * var(--baseline-trim))',
     },
   })
-
-  return ctx
 }

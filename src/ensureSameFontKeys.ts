@@ -1,19 +1,16 @@
-import { Dict, Result } from '@swan-io/boxed'
 import { stripIndent } from 'common-tags'
 import { Context } from './context'
 
-export const ensureSameFontKeys = (ctx: Context): Result<Context, string> => {
+export const ensureSameFontKeys = (ctx: Context): void => {
   const { theme } = ctx
 
-  const fontFamilyKeys = Dict.keys(theme.fontFamily)
-  const metricKeys = Dict.keys(theme.capsize.metrics)
+  const fontFamilyKeys = Object.keys(theme.fontFamily)
+  const metricKeys = Object.keys(theme.capsize.metrics)
 
   if (!metricKeys.every((key) => fontFamilyKeys.includes(key))) {
-    return Result.Error(
+    throw new Error(
       stripIndent`The keys provided in 'capsize.metrics' do not match the keys
       specified in 'fontFamily'.`
     )
   }
-
-  return Result.Ok(ctx)
 }

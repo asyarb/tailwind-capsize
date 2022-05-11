@@ -1,8 +1,6 @@
-import { Result } from '@swan-io/boxed'
 import { type TailwindContext } from 'tailwindcss/plugin'
 
 import { Theme, Options } from './validators'
-import { parseBoxed } from './parse'
 
 export interface Context {
   theme: Theme
@@ -10,13 +8,10 @@ export interface Context {
   options: Options
 }
 
-export const createContext = (
-  options: unknown,
-  tw: TailwindContext
-): Result<Context, string> => {
-  return Result.allFromDict({
-    theme: parseBoxed(Theme, tw.config().theme),
-    options: parseBoxed(Options, options),
-    tw: Result.Ok(tw),
-  })
+export function createContext(options: unknown, tw: TailwindContext): Context {
+  return {
+    theme: Theme.parse(tw.config().theme),
+    options: Options.parse(options),
+    tw,
+  }
 }

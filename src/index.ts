@@ -6,7 +6,6 @@ import { ensureSameFontKeys } from './ensureSameFontKeys'
 import { createFontFamilyUtils } from './createFontFamilyUtils'
 import { createFontSizeUtils } from './createFontSizeUtils'
 import { createLineHeightUtils } from './createLineHeightUtils'
-import { logAndThrow } from './logAndThrow'
 import { createCapsizeUtil } from './createCapsizeUtil'
 import { createRootVariables } from './createRootVariables'
 
@@ -20,14 +19,13 @@ const DEFAULT_CONFIG = {
 
 const tailwindCapsize = creator.withOptions<Partial<Options>>(
   (options) => (tw) => {
-    createContext(options, tw)
-      .flatMap(ensureSameFontKeys)
-      .map(createRootVariables)
-      .map(createFontSizeUtils)
-      .map(createLineHeightUtils)
-      .flatMap(createFontFamilyUtils)
-      .map(createCapsizeUtil)
-      .tapError(logAndThrow)
+    const ctx = createContext(options, tw)
+    ensureSameFontKeys(ctx)
+    createRootVariables(ctx)
+    createFontSizeUtils(ctx)
+    createLineHeightUtils(ctx)
+    createFontFamilyUtils(ctx)
+    createCapsizeUtil(ctx)
   },
   (_options) => DEFAULT_CONFIG
 )
