@@ -1,0 +1,71 @@
+:root {
+  --root-font-size: 16;
+}
+
+.text {
+  --font-size: 24;
+  --line-height: 1.25;
+
+  font-size: calc((var(--font-size) / var(--root-font-size)) * 1rem);
+  line-height: var(--line-height);
+}
+
+.font-inter {
+  --cap-height: 2048;
+  --ascent: 2728;
+  --descent: -680;
+  --line-gap: 0;
+  --units-per-em: 2816;
+  --x-height: 1536;
+
+  font-family: 'Inter var', system-ui;
+}
+
+.capsize {
+  --line-height-numeric: calc(var(--font-size) * var(--line-height));
+
+  --absolute-descent: max(var(--descent), -1 * var(--descent));
+  --cap-height-scale: calc(var(--cap-height) / var(--units-per-em));
+  --descent-scale: calc(var(--absolute-descent) / var(--units-per-em));
+  --ascent-scale: calc(var(--ascent) / var(--units-per-em));
+  --line-gap-scale: calc(var(--line-gap) / var(--units-per-em));
+
+  --content-area: calc(
+    var(--ascent) + var(--line-gap) + var(--absolute-descent)
+  );
+  --line-height-scale: calc(var(--content-area) / var(--units-per-em));
+  --line-height-normal: calc(var(--line-height-scale) * var(--font-size));
+
+  --cap-height-trim-param: calc(
+    var(--ascent-scale) - var(--cap-height-scale) + var(--line-gap-scale) / 2
+  );
+  --baseline-trim-param: calc(var(--descent-scale) + var(--line-gap-scale) / 2);
+
+  --specified-line-height-offset: calc(
+    (var(--line-height-normal) - var(--line-height-numeric)) / 2
+  );
+
+  --cap-height-trim-val: calc(
+    var(--cap-height-trim-param) - var(--specified-line-height-offset) /
+      var(--font-size)
+  );
+  --baseline-trim-val: calc(
+    var(--baseline-trim-param) - var(--specified-line-height-offset) /
+      var(--font-size)
+  );
+
+  --cap-height-trim: calc(var(--cap-height-trim-val) * -1);
+  --baseline-trim: calc(var(--baseline-trim-val) * -1);
+}
+
+.capsize::before {
+  content: '';
+  display: table;
+  margin-bottom: calc(1em * var(--cap-height-trim));
+}
+
+.capsize::after {
+  content: '';
+  display: table;
+  margin-top: calc(1em * var(--baseline-trim));
+}
