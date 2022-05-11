@@ -7,6 +7,10 @@ export const createCapsizeUtil = (ctx: Context): void => {
   const before = className + '::before'
   const after = className + '::after'
 
+  const noClassName = '.no-' + options.className
+  const noBefore = noClassName + '::before'
+  const noAfter = noClassName + '::after'
+
   tw.addUtilities({
     [className]: {
       '--line-height-numeric':
@@ -51,6 +55,10 @@ export const createCapsizeUtil = (ctx: Context): void => {
       content: '""',
       display: 'table',
       marginTop: 'calc(1em * var(--baseline-trim))',
+    },
+
+    [`${noBefore}, ${noAfter}`]: {
+      content: 'none',
     },
   })
 }
