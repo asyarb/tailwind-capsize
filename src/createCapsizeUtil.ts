@@ -1,8 +1,6 @@
 import { Context } from './context'
 
-export const createCapsizeUtil = (ctx: Context): void => {
-  const { tw, options } = ctx
-
+export function createCapsizeUtil({ tw, options }: Context): void {
   const className = '.' + options.className
   const before = className + '::before'
   const after = className + '::after'

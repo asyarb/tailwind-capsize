@@ -2,7 +2,7 @@ import { ThemeValue, FontSizeValue } from './validators'
 import { Context } from './context'
 import { isNumber } from './utils/isNumber'
 
-const getValueAsNumber = (value: ThemeValue, ctx: Context): number => {
+function getValueAsNumber(value: ThemeValue, ctx: Context): number {
   if (isNumber(value)) {
     return value
   }
@@ -17,7 +17,7 @@ const getValueAsNumber = (value: ThemeValue, ctx: Context): number => {
   return Number.parseFloat(value)
 }
 
-const fontSizeToPx = (value: FontSizeValue, ctx: Context): number => {
+function fontSizeToPx(value: FontSizeValue, ctx: Context): number {
   if (Array.isArray(value)) {
     return getValueAsNumber(value[0], ctx)
   }
@@ -25,7 +25,7 @@ const fontSizeToPx = (value: FontSizeValue, ctx: Context): number => {
   return getValueAsNumber(value, ctx)
 }
 
-export const createFontSizeUtils = (ctx: Context): void => {
+export function createFontSizeUtils(ctx: Context): void {
   const { tw } = ctx
 
   tw.matchUtilities(

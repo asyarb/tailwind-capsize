@@ -1,9 +1,7 @@
 import { z } from 'zod'
 import { Context } from './context'
 
-export const createFontFamilyUtils = (ctx: Context): void => {
-  const { theme, tw } = ctx
-
+export function createFontFamilyUtils({ theme, tw }: Context): void {
   Object.entries(theme.capsize.metrics).forEach(([key, metrics]) => {
     const className = `.font-${key}`
     const fontFamily = z.string().parse(tw.theme(`fontFamily.${key}`))

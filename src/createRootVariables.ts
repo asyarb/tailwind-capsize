@@ -1,8 +1,6 @@
 import { Context } from './context'
 
-export const createRootVariables = (ctx: Context): void => {
-  const { tw, options } = ctx
-
+export function createRootVariables({ tw, options }: Context): void {
   tw.addUtilities({
     ':root': {
       '--root-font-size': options.rootFontSize.toString(),
