@@ -28,16 +28,16 @@ export const createCapsizeUtil = (ctx: Context): void => {
       '--line-height-normal':
         'calc(var(--line-height-scale) * var(--font-size))',
 
-      '--cap-height-trim-param':
-        'calc(var(--ascent-scale) - var(--cap-height-scale) + var(--line-gap-scale) / 2)',
-      '--baseline-trim-param':
-        'calc(var(--descent-scale) + var(--line-gap-scale) / 2)',
-
       '--specified-line-height-offset':
         'calc((var(--line-height-normal) - var(--line-height-numeric)) / 2)',
 
+      '--cap-height-trim-param':
+        'calc(var(--ascent-scale) - var(--cap-height-scale) + var(--line-gap-scale) / 2)',
       '--cap-height-trim':
         'calc(var(--cap-height-trim-param) - var(--specified-line-height-offset) / var(--font-size))',
+
+      '--baseline-trim-param':
+        'calc(var(--descent-scale) + var(--line-gap-scale) / 2)',
       '--baseline-trim':
         'calc(var(--baseline-trim-param) - var(--specified-line-height-offset) / var(--font-size))',
     },

@@ -1,5 +1,8 @@
 :root {
   --root-font-size: 16;
+  --root-line-height: 1.2;
+  font-size: var(--root-font-size);
+  line-height: var(--root-line-height);
 }
 
 .text {
@@ -22,7 +25,9 @@
 }
 
 .capsize {
-  --line-height-numeric: calc(var(--font-size) * var(--line-height));
+  --line-height-numeric: calc(
+    var(--font-size) * var(--line-height, var(--root-line-height))
+  );
 
   --absolute-descent: max(var(--descent), -1 * var(--descent));
   --cap-height-scale: calc(var(--cap-height) / var(--units-per-em));
@@ -65,4 +70,9 @@
   content: '';
   display: table;
   margin-top: calc(var(--baseline-trim) * -1em);
+}
+
+.no-capsize::before,
+.no-capse::after {
+  content: none;
 }
