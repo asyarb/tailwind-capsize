@@ -165,16 +165,18 @@ module.exports = {
       className: 'trim',
       rootFontSize: 10,
       rootLineHeight: 1.5,
+      fluidUtils: true,
     }),
   ],
 }
 ```
 
-| **Option**       | **Type** | **Description**                                                                                                            | **Default** |
-| ---------------- | :------: | -------------------------------------------------------------------------------------------------------------------------- | :---------: |
-| `className`      | `string` | Class used to apply the "trimming styles" to an element. Also affects the `no-` and `-fluid` utilities.                    | `"capsize"` |
-| `rootFontSize`   | `number` | `font-size` specified in `:root`. Used to calculate correct `rem` units.                                                   |    `16`     |
-| `rootLineHeight` | `number` | `line-height` specified in `:root`. Used as line height in trimming calculations when a `leading-` class is not specified. |    `1.2`    |
+| **Option**       | **Type**  | **Description**                                                                                                            | **Default** |
+| ---------------- | :-------: | -------------------------------------------------------------------------------------------------------------------------- | :---------: |
+| `className`      | `string`  | Class used to apply the "trimming styles" to an element. Also affects the `no-` and `-fluid` utilities.                    | `"capsize"` |
+| `rootFontSize`   | `number`  | `font-size` specified in `:root`. Used to calculate correct `rem` units.                                                   |    `16`     |
+| `rootLineHeight` | `number`  | `line-height` specified in `:root`. Used as line height in trimming calculations when a `leading-` class is not specified. |    `1.2`    |
+| `fluidUtils`     | `boolean` | Enable or disable the generation of fluid typography utilities.                                                            |   `true`    |
 
 ## Limitations
 
