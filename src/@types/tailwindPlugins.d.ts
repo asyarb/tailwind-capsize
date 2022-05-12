@@ -37,6 +37,8 @@ declare module 'tailwindcss/plugin' {
     theme: ThemeFn
     config: ConfigFn
     addUtilities: AddUtilitiesFn
+    addComponents: AddUtilitiesFn
+    addBase: AddUtilitiesFn
     matchUtilities: MatchUtilitiesFn
   }
 

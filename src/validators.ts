@@ -27,8 +27,10 @@ const FontSize = z.record(FontSizeValue)
 const FontFamily = z.record(z.union([z.string(), z.array(z.string())]))
 const LineHeight = z.record(z.union([z.string(), z.number()]))
 const Capsize = z.object({ metrics: z.record(FontMetrics) })
+const Screens = z.record(z.string())
 
 export const Theme = z.object({
+  screens: Screens,
   fontFamily: FontFamily,
   lineHeight: LineHeight,
   fontSize: FontSize,
@@ -41,10 +43,12 @@ export const Options = z
     rootFontSize: z.number().default(16),
     rootLineHeight: z.number().default(1.2),
     className: z.string().default('capsize'),
+    fluidUtils: z.boolean().default(true),
   })
   .default({
     rootFontSize: 16,
     rootLineHeight: 1.2,
     className: 'capsize',
+    fluidUtils: true,
   })
 export type Options = z.infer<typeof Options>

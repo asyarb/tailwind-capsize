@@ -2,6 +2,7 @@ import * as fs from 'fs/promises'
 import * as path from 'path'
 import postcss from 'postcss'
 import tailwind from 'tailwindcss'
+import defaultTheme from 'tailwindcss/defaultTheme'
 import inter from '@capsizecss/metrics/inter'
 
 import capsizePlugin from '../src/index'
@@ -17,6 +18,11 @@ interface RunTailwindArgs {
 const config = (args?: RunTailwindArgs) => ({
   content: ['./tests/fixtures/index.html'],
   theme: {
+    screens: {
+      base: '360px',
+      ...defaultTheme.screens,
+    },
+
     fontFamily: {
       sans: ['Inter var', 'system-ui'],
     },
