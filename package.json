@@ -5,6 +5,9 @@
   "repository": "https://github.com/asyarb/tailwind-capsize",
   "author": "Anthony Yarbrough <asyarb@hawaii.edu>",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "files": [
     "dist"
   ],
