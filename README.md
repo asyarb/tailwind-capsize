@@ -116,6 +116,9 @@ This plugin supports "fluid" typography with `clamp()` as described in this
 [Smashing Magazine](https://www.smashingmagazine.com/2022/01/modern-fluid-typography-css-clamp/)
 post.
 
+> Opting-out of trimming via `no-capsize` is also available for fluid
+> typography.
+
 ```html
 <!-- Use on an element directly -->
 <p
