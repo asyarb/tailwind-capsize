@@ -136,11 +136,11 @@ post.
 
 ### Generated classes
 
-| **Class**         |  **Theme Key**   | **Description**                                                    |
-| ----------------- | :--------------: | ------------------------------------------------------------------ |
-| `from-text-[]`    | `theme.fontSize` | Specify a font size to start with. Must be in `px` or `rem` units. |
-| `to-text-[]`      | `theme.fontSize` | Specify a font size to end with. Must be in `px` or `rem` units.   |
-| `screen-[]-to-[]` | `theme.screens`  | Specify screen sizes from your config to fluidly scale between.    |
+| **Class**         |  **Theme Key**   | **Description**                                                                               |
+| ----------------- | :--------------: | --------------------------------------------------------------------------------------------- |
+| `from-text-[]`    | `theme.fontSize` | Specify a font size to start with. Must be in `px` or `rem` units. Supports arbitrary values. |
+| `to-text-[]`      | `theme.fontSize` | Specify a font size to end with. Must be in `px` or `rem` units. Supports arbitrary values.   |
+| `screen-[]-to-[]` | `theme.screens`  | Specify screen sizes from your config to fluidly scale between.                               |
 
 ### Recommendations
 
