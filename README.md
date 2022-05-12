@@ -122,13 +122,13 @@ post.
 ```html
 <!-- Use on an element directly -->
 <p
-  class="font-sans leading-normal from-text-sm to-text-2xl from-sm-to-xl capsize-fluid"
+  class="font-sans leading-normal from-text-sm to-text-2xl screen-sm-to-xl capsize-fluid"
 >
   Trimmed Fluid Text
 </p>
 
 <!-- Or rely on the cascade -->
-<div class="font-sans leading-normal from-text-sm to-text-2xl from-sm-to-xl">
+<div class="font-sans leading-normal from-text-sm to-text-2xl screen-sm-to-xl">
   <p class="capsize-fluid">Trimmed</p>
   <p class="capsize-fluid">Also trimmed</p>
 </div>
@@ -136,11 +136,11 @@ post.
 
 ### Generated classes
 
-| **Class**       |  **Theme Key**   | **Description**                                                    |
-| --------------- | :--------------: | ------------------------------------------------------------------ |
-| `from-text-[]`  | `theme.fontSize` | Specify a font size to start with. Must be in `px` or `rem` units. |
-| `to-text-[]`    | `theme.fontSize` | Specify a font size to end with. Must be in `px` or `rem` units.   |
-| `from-[]-to-[]` | `theme.screens`  | Specify screen sizes from your c onfig to fluidly scale between.   |
+| **Class**         |  **Theme Key**   | **Description**                                                    |
+| ----------------- | :--------------: | ------------------------------------------------------------------ |
+| `from-text-[]`    | `theme.fontSize` | Specify a font size to start with. Must be in `px` or `rem` units. |
+| `to-text-[]`      | `theme.fontSize` | Specify a font size to end with. Must be in `px` or `rem` units.   |
+| `screen-[]-to-[]` | `theme.screens`  | Specify screen sizes from your config to fluidly scale between.    |
 
 ### Recommendations
 

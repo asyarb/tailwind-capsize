@@ -7,7 +7,7 @@ test('it creates the fluid typography utils', async () => {
   const capsizeFluid = css['.capsize-fluid']
   const fromTextSm = css['.from-text-sm']
   const toText2xl = css['.to-text-2xl']
-  const fromBaseToXl = css['.from-base-to-xl']
+  const screenBaseToXl = css['.screen-base-to-xl']
 
   expect(capsizeFluid).toMatchInlineSnapshot(`
     {
@@ -45,7 +45,7 @@ test('it creates the fluid typography utils', async () => {
       "--max-font-size": "24",
     }
   `)
-  expect(fromBaseToXl).toMatchInlineSnapshot(`
+  expect(screenBaseToXl).toMatchInlineSnapshot(`
     {
       "--max-screen-size": "1280",
       "--min-screen-size": "360",

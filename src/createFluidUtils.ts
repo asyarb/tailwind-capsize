@@ -30,7 +30,7 @@ export function createFluidUtils(ctx: Context): void {
 
   Object.entries(theme.screens).forEach(([screen, breakpoint], idx) => {
     screens.slice(idx + 1).forEach((otherScreen) => {
-      const className = `.from-${screen}-to-${otherScreen}`
+      const className = `.screen-${screen}-to-${otherScreen}`
       const otherScreenBreakpoint = theme.screens[otherScreen]!
 
       fluidUtils[className] = {
