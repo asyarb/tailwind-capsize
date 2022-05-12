@@ -7,7 +7,6 @@ specifiers:
   autoprefixer: ^10.4.5
   common-tags: ^1.8.2
   css2json: ^1.1.1
-  just-map-values: ^3.0.2
   postcss: ^8.2.13
   prettier: ^2.2.1
   standard-version: ^9.3.2
@@ -20,7 +19,6 @@ specifiers:
 
 dependencies:
   common-tags: 1.8.2
-  just-map-values: 3.0.2
   zod: 3.14.4
 
 devDependencies:
@@ -1279,10 +1277,6 @@ packages:
     resolution: {integrity: sha1-P02uSpH6wxX3EGL4UhzCOfE2YoA=}
     engines: {'0': node >= 0.2.0}
     dev: true
-
-  /just-map-values/3.0.2:
-    resolution: {integrity: sha512-bPrvJIZ/0QbrsnrY1f8JxfPZ7joimSecUeYjoxVctBTYxjRKjtVU1QMgAJCK5RTo5bNGonVY7FxrwQ+gQrIyww==}
-    dev: false
 
   /kind-of/6.0.3:
     resolution: {integrity: sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw==}
