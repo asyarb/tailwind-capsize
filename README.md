@@ -185,8 +185,11 @@ module.exports = {
 
 ## Plain CSS Version
 
-If you are looking for a "plain" CSS version of this plugin, checkout this
-[Gist](https://gist.github.com/asyarb/ec0bb47ebe31f4953e3b31eedee6058f).
+If you are looking for a "plain" CSS version of this plugin, checkout these
+Gists:
+
+- [Normal](https://gist.github.com/asyarb/ec0bb47ebe31f4953e3b31eedee6058f)
+- [Fluid](https://gist.github.com/asyarb/162bf0a8b5d238de01bd2832094727ad)
 
 ## License
 
