@@ -1,9 +1,7 @@
 import { stripIndent } from 'common-tags'
 import { Context } from './context'
 
-export const ensureSameFontKeys = (ctx: Context): void => {
-  const { theme } = ctx
-
+export function ensureSameFontKeys({ theme }: Context): void {
   const fontFamilyKeys = Object.keys(theme.fontFamily)
   const metricKeys = Object.keys(theme.capsize.metrics)
 

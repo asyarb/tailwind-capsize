@@ -1,9 +1,15 @@
 const capsizePlugin = require('../../dist/index')
+const defaultTheme = require('tailwindcss/defaultTheme')
 const inter = require('@capsizecss/metrics/inter')
 
 module.exports = {
   content: ['./tests/fixtures/index.html'],
   theme: {
+    screens: {
+      base: '360px',
+      ...defaultTheme.screens,
+    },
+
     fontFamily: {
       sans: ['Inter var', 'system-ui'],
     },

@@ -10,6 +10,9 @@ below web typography. Based on the great work in the
   - [With @apply](#with-apply)
   - [Trimming by default](#trimming-by-default)
     - [Opting out of trimming](#opting-out-of-trimming)
+- [Fluid Utilities](#fluid-utilities)
+  - [Generated classes](#generated-classes)
+  - [Recommendations](#recommendations)
 - [Options](#options)
 - [Limitations](#limitations)
 - [Plain CSS Version](#plain-css-version)
@@ -60,7 +63,7 @@ Usage is best explained with an example:
 
 ```html
 <!-- Use on an element directly -->
-<p class="capsize font-sans text-xl leading-normal">Trimmed Text</p>
+<p class="font-sans text-xl leading-normal capsize">Trimmed Text</p>
 
 <!-- Or rely on the cascade -->
 <div class="font-sans text-xl leading-normal">
@@ -107,6 +110,47 @@ the `no-capsize` utility.
 </div>
 ```
 
+## Fluid Utilities
+
+This plugin supports "fluid" typography with `clamp()` as described in this
+[Smashing Magazine](https://www.smashingmagazine.com/2022/01/modern-fluid-typography-css-clamp/)
+post.
+
+> Opting-out of trimming via `no-capsize` is also available for fluid
+> typography.
+
+```html
+<!-- Use on an element directly -->
+<p
+  class="font-sans leading-normal from-text-sm to-text-2xl screen-sm-to-xl capsize-fluid"
+>
+  Trimmed Fluid Text
+</p>
+
+<!-- Or rely on the cascade -->
+<div class="font-sans leading-normal from-text-sm to-text-2xl screen-sm-to-xl">
+  <p class="capsize-fluid">Trimmed</p>
+  <p class="capsize-fluid">Also trimmed</p>
+</div>
+```
+
+### Generated classes
+
+| **Class**         |  **Theme Key**   | **Description**                                                    |
+| ----------------- | :--------------: | ------------------------------------------------------------------ |
+| `from-text-[]`    | `theme.fontSize` | Specify a font size to start with. Must be in `px` or `rem` units. |
+| `to-text-[]`      | `theme.fontSize` | Specify a font size to end with. Must be in `px` or `rem` units.   |
+| `screen-[]-to-[]` | `theme.screens`  | Specify screen sizes from your config to fluidly scale between.    |
+
+### Recommendations
+
+If you are looking to scale up a font size from "mobile", you may wish to add a
+"base" screen size to your Tailwind config.
+
+Check out the
+[Tailwind docs](https://tailwindcss.com/docs/screens#adding-smaller-breakpoints)
+on adding small breakpoints.
+
 ## Options
 
 This plugin supports a couple of configuration options. You can supply them as
@@ -121,16 +165,18 @@ module.exports = {
       className: 'trim',
       rootFontSize: 10,
       rootLineHeight: 1.5,
+      fluidUtils: true,
     }),
   ],
 }
 ```
 
-| **Option**       | **Type** | **Description**                                                                                                            | **Default** |
-| ---------------- | :------: | -------------------------------------------------------------------------------------------------------------------------- | :---------: |
-| `className`      | `string` | Class used to apply the "trimming styles" to an element. Also affects the `no-` undo trim utility.                         | `"capsize"` |
-| `rootFontSize`   | `number` | `font-size` specified in `:root`. Used to calculate correct `rem` units.                                                   |    `16`     |
-| `rootLineHeight` | `number` | `line-height` specified in `:root`. Used as line height in trimming calculations when a `leading-` class is not specified. |    `1.2`    |
+| **Option**       | **Type**  | **Description**                                                                                                            | **Default** |
+| ---------------- | :-------: | -------------------------------------------------------------------------------------------------------------------------- | :---------: |
+| `className`      | `string`  | Class used to apply the "trimming styles" to an element. Also affects the `no-` and `-fluid` utilities.                    | `"capsize"` |
+| `rootFontSize`   | `number`  | `font-size` specified in `:root`. Used to calculate correct `rem` units.                                                   |    `16`     |
+| `rootLineHeight` | `number`  | `line-height` specified in `:root`. Used as line height in trimming calculations when a `leading-` class is not specified. |    `1.2`    |
+| `fluidUtils`     | `boolean` | Enable or disable the generation of fluid typography utilities.                                                            |   `true`    |
 
 ## Limitations
 
@@ -141,8 +187,11 @@ module.exports = {
 
 ## Plain CSS Version
 
-If you are looking for a "plain" CSS version of this plugin, checkout this
-[Gist](https://gist.github.com/asyarb/ec0bb47ebe31f4953e3b31eedee6058f).
+If you are looking for a "plain" CSS version of this plugin, checkout these
+Gists:
+
+- [Normal](https://gist.github.com/asyarb/ec0bb47ebe31f4953e3b31eedee6058f)
+- [Fluid](https://gist.github.com/asyarb/162bf0a8b5d238de01bd2832094727ad)
 
 ## License
 

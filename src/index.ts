@@ -8,6 +8,8 @@ import { createFontSizeUtils } from './createFontSizeUtils'
 import { createLineHeightUtils } from './createLineHeightUtils'
 import { createCapsizeUtil } from './createCapsizeUtil'
 import { createRootVariables } from './createRootVariables'
+import { createFluidUtils } from './createFluidUtils'
+import { createNoCapsizeUtil } from './createNoCapsizeUtil'
 
 const DEFAULT_CONFIG = {
   corePlugins: {
@@ -26,6 +28,12 @@ const tailwindCapsize = creator.withOptions<Partial<Options>>(
     createLineHeightUtils(ctx)
     createFontFamilyUtils(ctx)
     createCapsizeUtil(ctx)
+
+    if (ctx.options.fluidUtils) {
+      createFluidUtils(ctx)
+    }
+
+    createNoCapsizeUtil(ctx)
   },
   (_options) => DEFAULT_CONFIG
 )
