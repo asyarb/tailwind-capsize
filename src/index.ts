@@ -35,6 +35,7 @@ const tailwindCapsize = creator.withOptions<Partial<Options>>(
 
     createNoCapsizeUtil(ctx)
   },
+  //@ts-expect-error - Partial<Confi> is an acceptable type.
   (_options) => DEFAULT_CONFIG
 )
 
