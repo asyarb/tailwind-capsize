@@ -22,7 +22,7 @@ below web typography. Based on the great work in the
 
 ```bash
 # npm
-npm i --save-dev @asyarb/tailwindcss-capsize
+npm i --save-dev @asyarb/tailwind-capsize
 ```
 
 ## Configuration
